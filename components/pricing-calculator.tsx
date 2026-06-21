@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Slider from 'react-slider'
 import '../styles/slider.css'
+import { formatNumberCompact, formatCurrency } from '@/lib/format-number'
 
 interface CalculatorState {
   callsPerMonth: number
@@ -63,8 +64,9 @@ export default function PricingCalculator() {
               <label className="text-sm font-heading text-secondary">
                 Calls per Month
               </label>
-              <span className="text-2xl font-heading text-accent">
-                {values.callsPerMonth.toLocaleString()}
+              <span className="text-lg sm:text-2xl font-heading text-accent">
+                <span className="hidden sm:inline">{values.callsPerMonth.toLocaleString()}</span>
+                <span className="sm:hidden">{formatNumberCompact(values.callsPerMonth)}</span>
               </span>
             </div>
             <Slider
@@ -137,27 +139,34 @@ export default function PricingCalculator() {
 
           {/* Price Summary */}
           <div className="border-t border-border pt-8 mt-10">
-            <div className="space-y-3 mb-6">
-              <div className="flex justify-between text-sm">
+            <div className="space-y-3 mb-6 text-xs sm:text-sm">
+              <div className="flex justify-between">
                 <span className="text-muted-foreground">Base monthly</span>
-                <span className="font-heading text-foreground">
+                <span className="font-heading text-foreground hidden sm:inline">
                   ₨{baseCost.toLocaleString()}
                 </span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">
-                  Calls ({values.callsPerMonth} × ₨{costPerCall})
+                <span className="font-heading text-foreground sm:hidden">
+                  {formatCurrency(baseCost)}
                 </span>
-                <span className="font-heading text-foreground">
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">
+                  Calls 
+                  <span className="hidden sm:inline"> ({values.callsPerMonth} × ₨{costPerCall})</span>
+                </span>
+                <span className="font-heading text-foreground hidden sm:inline">
                   ₨{(values.callsPerMonth * costPerCall).toLocaleString()}
                 </span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">
-                  Call minutes ({values.callsPerMonth} × {values.minutesPerCall} ×
-                  ₨{costPerMinute})
+                <span className="font-heading text-foreground sm:hidden">
+                  {formatCurrency(values.callsPerMonth * costPerCall)}
                 </span>
-                <span className="font-heading text-foreground">
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">
+                  Minutes
+                  <span className="hidden sm:inline"> ({values.callsPerMonth} × {values.minutesPerCall} × ₨{costPerMinute})</span>
+                </span>
+                <span className="font-heading text-foreground hidden sm:inline">
                   ₨
                   {(
                     values.callsPerMonth *
@@ -165,25 +174,36 @@ export default function PricingCalculator() {
                     costPerMinute
                   ).toLocaleString()}
                 </span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">
-                  Concurrent slots ({values.concurrentCalls} × ₨
-                  {costPerConcurrentSlot})
+                <span className="font-heading text-foreground sm:hidden">
+                  {formatCurrency(
+                    values.callsPerMonth *
+                    values.minutesPerCall *
+                    costPerMinute
+                  )}
                 </span>
-                <span className="font-heading text-foreground">
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">
+                  Concurrent
+                  <span className="hidden sm:inline"> ({values.concurrentCalls} × ₨{costPerConcurrentSlot})</span>
+                </span>
+                <span className="font-heading text-foreground hidden sm:inline">
                   ₨{(values.concurrentCalls * costPerConcurrentSlot).toLocaleString()}
+                </span>
+                <span className="font-heading text-foreground sm:hidden">
+                  {formatCurrency(values.concurrentCalls * costPerConcurrentSlot)}
                 </span>
               </div>
             </div>
 
-            <div className="bg-secondary/5 rounded p-4">
-              <div className="flex justify-between items-baseline">
-                <span className="text-sm font-heading text-secondary">
-                  Estimated Monthly Cost
+            <div className="bg-secondary/5 rounded p-3 sm:p-4">
+              <div className="flex justify-between items-baseline gap-2">
+                <span className="text-xs sm:text-sm font-heading text-secondary">
+                  Monthly
                 </span>
-                <span className="text-4xl font-heading text-primary">
-                  ₨{totalCost.toLocaleString()}
+                <span className="text-2xl sm:text-4xl font-heading text-primary">
+                  <span className="hidden sm:inline">₨{totalCost.toLocaleString()}</span>
+                  <span className="sm:hidden">{formatCurrency(totalCost)}</span>
                 </span>
               </div>
             </div>
