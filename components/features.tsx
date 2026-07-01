@@ -50,7 +50,7 @@ export default function Features() {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/5">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/55">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <h2 className="text-4xl sm:text-5xl font-heading text-foreground mb-4">
@@ -68,7 +68,7 @@ export default function Features() {
             return (
               <div
                 key={idx}
-                className="bg-card rounded-lg p-6 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                className="bg-card rounded-lg p-6 border border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <div className="mb-4">
                   <IconComponent />
