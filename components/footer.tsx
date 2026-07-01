@@ -26,7 +26,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="#"
+                  href="#features"
                   className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
                 >
                   Features
@@ -34,7 +34,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="#pricing"
                   className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
                 >
                   Pricing
@@ -42,10 +42,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="#architecture"
                   className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
                 >
-                  Demo
+                  Architecture
                 </Link>
               </li>
             </ul>
@@ -108,7 +108,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="#contact"
                   className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
                 >
                   Contact

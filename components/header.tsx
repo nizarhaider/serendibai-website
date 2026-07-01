@@ -28,8 +28,8 @@ export default function Header() {
             <Link href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Pricing
             </Link>
-            <Link href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Contact
+            <Link href="#architecture" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Architecture
             </Link>
           </nav>
 
@@ -77,10 +77,10 @@ export default function Header() {
               Pricing
             </Link>
             <Link
-              href="#contact"
+              href="#architecture"
               className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
             >
-              Contact
+              Architecture
             </Link>
             <button className="w-full px-6 py-2 text-sm bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading">
               Get Started

@@ -52,14 +52,15 @@ export default function Hero() {
         <div className={`mb-20 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="relative h-48 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-xl border border-border/30">
             <Image
-              src="/hero-voice-waves.png"
-              alt="Voice AI Technology"
+              src="/serendibai-hero-ai-support.webp"
+              alt="Sri Lankan support operator using SerendibAI voice technology"
               fill
-              className="object-cover object-center sm:object-center"
+              className="object-cover object-center"
               style={{
-                objectPosition: 'center 30%'
+                objectPosition: 'center 42%'
               }}
               priority
+              sizes="(min-width: 1024px) 1024px, 100vw"
             />
           </div>
         </div>
