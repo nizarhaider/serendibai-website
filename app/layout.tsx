@@ -9,10 +9,34 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'SerendibAI - AI Call Center Agents for Sri Lankan Businesses',
   description: 'Managed AI call center agents that answer inbound customer calls in English, Sinhala, and Tamil for Sri Lankan businesses.',
   generator: 'v0.app',
+  openGraph: {
+    title: 'SerendibAI - AI Call Center Agents',
+    description: 'Managed AI call center agents for Sri Lankan businesses. English, Sinhala, and Tamil inbound call handling.',
+    type: 'website',
+    images: [
+      {
+        url: '/serendibai-social-preview.png',
+        width: 1200,
+        height: 630,
+        alt: 'SerendibAI AI call center agents social preview',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SerendibAI - AI Call Center Agents',
+    description: 'Managed AI call center agents for Sri Lankan businesses. English, Sinhala, and Tamil inbound call handling.',
+    images: ['/serendibai-social-preview.png'],
+  },
   icons: {
     icon: [
       {
