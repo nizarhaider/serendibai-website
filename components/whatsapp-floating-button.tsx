@@ -1,20 +1,38 @@
-import { MessageCircle } from 'lucide-react'
+'use client'
 
-const whatsappNumber = '94742530708'
-const whatsappMessage = encodeURIComponent(
-  'Hi SerendibAI, I would like to book a demo.'
-)
+import { FloatingWhatsApp } from '@digicroz/react-floating-whatsapp'
 
 export default function WhatsAppFloatingButton() {
   return (
-    <a
-      href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat with SerendibAI on WhatsApp"
-      className="fixed bottom-4 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
-    >
-      <MessageCircle className="h-7 w-7 sm:h-8 sm:w-8" aria-hidden="true" />
-    </a>
+    <FloatingWhatsApp
+      phoneNumber="94742530708"
+      accountName="SerendibAI"
+      avatar="/apple-icon.png"
+      statusMessage="AI call center demos"
+      chatMessage={'Hi! Tell us what calls you want SerendibAI to handle, and we will help you book a demo.'}
+      placeholder="Type your message..."
+      messageDelay={1}
+      allowClickAway
+      allowEsc
+      notification
+      notificationDelay={20}
+      notificationLoop={1}
+      notificationSound={false}
+      chatboxHeight={360}
+      buttonStyle={{
+        bottom: '1.5rem',
+        right: '1.5rem',
+        width: '64px',
+        height: '64px',
+        boxShadow: '0 18px 40px rgba(0, 0, 0, 0.22)',
+      }}
+      chatboxStyle={{
+        right: '1.5rem',
+        bottom: '6.75rem',
+      }}
+      whatsappButtonProps={{
+        'aria-label': 'Chat with SerendibAI on WhatsApp',
+      }}
+    />
   )
 }
