@@ -1,7 +1,7 @@
 const messages = [
   {
     role: 'ai',
-    text: 'Hi! Would you like to speak in English, සිංහල, or தமிழ்?',
+    text: 'Hello, this is SerendibAI. Would you like English, සිංහල, or தமிழ்?',
     delay: '0ms',
   },
   {
@@ -11,7 +11,7 @@ const messages = [
   },
   {
     role: 'ai',
-    text: 'හරි. ඔබට අද කොහොම උදව් කරන්නද?',
+    text: 'හරි. ඔබේ ඇමතුමට මම උදව් කරන්නම්.',
     delay: '1800ms',
   },
   {
@@ -21,26 +21,27 @@ const messages = [
   },
   {
     role: 'ai',
-    text: 'පුළුවන්. ඔබේ නම සහ දුරකථන අංකය කියන්න.',
+    text: 'පුළුවන්. මම booking එක සටහන් කරලා confirmation එක යවන්නම්.',
     delay: '3600ms',
   },
 ]
 
 export default function ConversationDemo() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-card">
+    <section id="how-it-works" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-card">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
         <div>
           <p className="text-sm font-heading tracking-widest text-accent uppercase mb-4">
-            Multilingual handoff
+            How calls work
           </p>
           <h2 className="text-3xl sm:text-5xl font-heading text-foreground mb-5 leading-tight">
-            Meet customers in the language they choose
+            Your AI agent answers, understands, and acts
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            SerendibAI starts every call by letting customers choose English,
-            Sinhala, or Tamil. Once they choose Sinhala, the agent continues in
-            Sinhala while keeping the same business context.
+            SerendibAI starts each inbound call in the customer&apos;s preferred
+            language, follows the workflow we configure with your team, and
+            sends the outcome to the right place. If the call needs a person,
+            the agent hands it over with context.
           </p>
         </div>
 

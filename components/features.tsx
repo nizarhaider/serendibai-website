@@ -12,39 +12,39 @@ import {
 export default function Features() {
   const features = [
     {
-      title: 'Multilingual Mastery',
+      title: 'Support questions',
       description:
-        'Native fluency in Sinhala, Tamil, and English with cultural context and local idioms.',
+        'Answer opening hours, service details, order questions, and common customer requests in three languages.',
       icon: MultilingualIcon,
     },
     {
-      title: 'Call Center Ready',
+      title: 'Bookings and appointments',
       description:
-        'Handle customer service, support inquiries, and appointment scheduling seamlessly.',
+        'Capture names, phone numbers, preferred times, and booking notes before sending them to your team.',
       icon: CallCenterIcon,
     },
     {
-      title: 'Real-time Analytics',
+      title: 'Call summaries',
       description:
-        'Track call volumes, duration, sentiment analysis, and agent performance metrics.',
+        'Receive clear summaries of what the customer asked, what the agent did, and what needs follow-up.',
       icon: AnalyticsIcon,
     },
     {
-      title: 'Smart Integration',
+      title: 'Business handoff',
       description:
-        'Connect with your existing CRM, helpdesk, and business systems via APIs.',
+        'Route urgent, complex, or payment-related calls to a human with the conversation context included.',
       icon: IntegrationIcon,
     },
     {
-      title: 'Enterprise Security',
+      title: 'Managed setup',
       description:
-        'GDPR compliant, encrypted conversations, and secure data handling for your customers.',
+        'We configure your scripts, languages, call rules, reporting, and integrations around your business.',
       icon: SecurityIcon,
     },
     {
-      title: 'Scalable Infrastructure',
+      title: 'After-hours coverage',
       description:
-        'From 10 concurrent calls to 1000+. Scale up as your business grows.',
+        'Keep answering inbound calls when your staff are busy, closed, or handling customers in person.',
       icon: ScalabilityIcon,
     },
   ]
@@ -54,20 +54,20 @@ export default function Features() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <h2 className="text-4xl sm:text-5xl font-heading text-foreground mb-4">
-            Purpose-Built for Your Business
+            What your AI call agent handles
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Every feature designed with Sri Lankan businesses in mind. No
-            unnecessary complexity, just what works.
+            SerendibAI is built for practical inbound call handling: answer,
+            book, summarize, route, and escalate when a real person is needed.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, idx) => {
+          {features.map((feature) => {
             const IconComponent = feature.icon
             return (
               <div
-                key={idx}
+                key={feature.title}
                 className="bg-card rounded-lg p-6 border border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <div className="mb-4">

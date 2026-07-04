@@ -22,22 +22,25 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Features
+            <Link href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              How it works
+            </Link>
+            <Link href="#use-cases" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Use cases
             </Link>
             <Link href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Pricing
-            </Link>
-            <Link href="#architecture" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Architecture
             </Link>
           </nav>
 
           {/* CTA Button */}
           <div className="flex items-center gap-4">
-            <button className="hidden sm:inline px-6 py-2 text-sm bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading">
-              Get Started
-            </button>
+            <Link
+              href="#contact"
+              className="hidden sm:inline px-6 py-2 text-sm bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading"
+            >
+              Book a demo
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -65,10 +68,16 @@ export default function Header() {
         {isOpen && (
           <div className="md:hidden border-t border-border py-4 space-y-3">
             <Link
-              href="#features"
+              href="#how-it-works"
               className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
             >
-              Features
+              How it works
+            </Link>
+            <Link
+              href="#use-cases"
+              className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+            >
+              Use cases
             </Link>
             <Link
               href="#pricing"
@@ -77,14 +86,11 @@ export default function Header() {
               Pricing
             </Link>
             <Link
-              href="#architecture"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+              href="#contact"
+              className="block w-full px-6 py-2 text-center text-sm bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading"
             >
-              Architecture
+              Book a demo
             </Link>
-            <button className="w-full px-6 py-2 text-sm bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading">
-              Get Started
-            </button>
           </div>
         )}
       </div>

@@ -49,11 +49,12 @@ export default function PricingCalculator() {
       <div className="max-w-2xl mx-auto">
         <div className="mb-16">
           <h2 className="text-4xl sm:text-5xl font-heading mb-4 text-foreground">
-            Transparent Pricing
+            Estimate monthly call handling cost
           </h2>
           <p className="text-lg text-muted-foreground">
-            Customize your plan based on your call center needs. Adjust the
-            sliders to see real-time pricing.
+            Use this as a planning estimate for inbound AI call handling. Final
+            pricing depends on call volume, workflows, integrations, and support
+            needs.
           </p>
         </div>
 
@@ -62,7 +63,7 @@ export default function PricingCalculator() {
           <div className="mb-10">
             <div className="flex justify-between items-baseline mb-6">
               <label className="text-sm font-heading text-secondary">
-                Calls per Month
+                Inbound calls per month
               </label>
               <span className="text-lg sm:text-2xl font-heading text-accent">
                 <span className="hidden sm:inline">{values.callsPerMonth.toLocaleString()}</span>
@@ -89,7 +90,7 @@ export default function PricingCalculator() {
           <div className="mb-10">
             <div className="flex justify-between items-baseline mb-6">
               <label className="text-sm font-heading text-secondary">
-                Minutes per Call
+                Average minutes per call
               </label>
               <span className="text-2xl font-heading text-accent">
                 {values.minutesPerCall}
@@ -115,7 +116,7 @@ export default function PricingCalculator() {
           <div className="mb-10">
             <div className="flex justify-between items-baseline mb-6">
               <label className="text-sm font-heading text-secondary">
-                Concurrent Calls
+                Simultaneous calls
               </label>
               <span className="text-2xl font-heading text-accent">
                 {values.concurrentCalls}
@@ -184,7 +185,7 @@ export default function PricingCalculator() {
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">
-                  Concurrent
+                  Simultaneous capacity
                   <span className="hidden sm:inline"> ({values.concurrentCalls} × ₨{costPerConcurrentSlot})</span>
                 </span>
                 <span className="font-heading text-foreground hidden sm:inline">
@@ -199,7 +200,7 @@ export default function PricingCalculator() {
             <div className="bg-secondary/5 rounded p-3 sm:p-4">
               <div className="flex justify-between items-baseline gap-2">
                 <span className="text-xs sm:text-sm font-heading text-secondary">
-                  Monthly
+                  Estimated monthly
                 </span>
                 <span className="text-2xl sm:text-4xl font-heading text-primary">
                   <span className="hidden sm:inline">₨{totalCost.toLocaleString()}</span>
@@ -212,11 +213,15 @@ export default function PricingCalculator() {
 
         <div className="mt-10 text-center">
           <p className="text-sm text-muted-foreground mb-6">
-            All prices in LKR. Contact us for custom enterprise plans.
+            Indicative prices in LKR. We confirm the final plan after reviewing
+            your call flow, languages, integrations, and handoff requirements.
           </p>
-          <button className="px-8 py-3 bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading text-sm">
-            Get Started
-          </button>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading text-sm"
+          >
+            Book a pricing demo
+          </a>
         </div>
       </div>
     </section>

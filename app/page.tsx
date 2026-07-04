@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <Hero />
       <ConversationDemo />
-      <section id="features">
+      <section id="use-cases">
         <Features />
       </section>
       <ArchitectureSection />

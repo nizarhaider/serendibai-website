@@ -10,8 +10,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'SerendibAI - AI Voice Agents for Sri Lanka',
-  description: 'Intelligent voice agents that speak Sinhala, Tamil, and English. Handle customer calls with AI-powered agents designed for Sri Lankan businesses.',
+  title: 'SerendibAI - AI Call Center Agents for Sri Lankan Businesses',
+  description: 'Managed AI call center agents that answer inbound customer calls in English, Sinhala, and Tamil for Sri Lankan businesses.',
   generator: 'v0.app',
   icons: {
     icon: [
