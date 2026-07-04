@@ -6,6 +6,7 @@ import ArchitectureSection from '@/components/architecture-section'
 import PricingCalculator from '@/components/pricing-calculator'
 import CTASection from '@/components/cta-section'
 import Footer from '@/components/footer'
+import WhatsAppFloatingButton from '@/components/whatsapp-floating-button'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       </section>
       <CTASection />
       <Footer />
+      <WhatsAppFloatingButton />
     </main>
   )
 }

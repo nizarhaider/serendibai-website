@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pb-16 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-x-0 top-16 h-px bg-primary/20"></div>
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-muted/45"></div>
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-muted/25 to-muted/60"></div>
       </div>
 
       <div className="w-full min-w-0 max-w-6xl mx-auto relative z-10">
@@ -13,8 +13,15 @@ export default function Hero() {
           </p>
 
           <h1 className="text-3xl sm:text-6xl lg:text-7xl font-heading text-foreground mb-5 sm:mb-6 leading-tight text-balance">
-            Answer every customer call in{' '}
-            <span className="text-primary">English, Sinhala, or Tamil</span>
+            <span className="inline-flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
+              <span>Answer every customer call in</span>
+              <span className="language-rotator text-primary" aria-hidden="true">
+                <span>English</span>
+                <span>සිංහල</span>
+                <span>தமிழ்</span>
+              </span>
+            </span>
+            <span className="sr-only">English, Sinhala, or Tamil</span>
           </h1>
 
           <p className="text-base sm:text-xl text-muted-foreground mb-9 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
