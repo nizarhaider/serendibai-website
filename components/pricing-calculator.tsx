@@ -45,11 +45,12 @@ export default function PricingCalculator() {
   }
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
+    <section className="bg-[#f3f4ef] px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
+      <div className="max-w-3xl mx-auto">
         <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-heading mb-4 text-foreground">
-            Estimate monthly call handling cost
+          <p className="eyebrow mb-5">Clear, scalable pricing</p>
+          <h2 className="text-4xl font-semibold tracking-[-.055em] sm:text-6xl mb-5 text-foreground">
+            Estimate your monthly call operations
           </h2>
           <p className="text-lg text-muted-foreground">
             Use this as a planning estimate for inbound AI call handling. Final
@@ -58,7 +59,7 @@ export default function PricingCalculator() {
           </p>
         </div>
 
-        <div className="bg-card rounded-lg p-8 sm:p-10 border border-border shadow-sm">
+        <div className="bg-card rounded-[28px] p-6 sm:p-10 border border-white shadow-[0_28px_80px_rgba(15,34,29,.1)] ring-1 ring-border/70">
           {/* Calls Per Month */}
           <div className="mb-10">
             <div className="flex justify-between items-baseline mb-6">
@@ -197,7 +198,7 @@ export default function PricingCalculator() {
               </div>
             </div>
 
-            <div className="bg-secondary/5 rounded p-3 sm:p-4">
+            <div className="bg-[#e2f7f0] rounded-2xl p-4 sm:p-5">
               <div className="flex justify-between items-baseline gap-2">
                 <span className="text-xs sm:text-sm font-heading text-secondary">
                   Estimated monthly
@@ -218,7 +219,7 @@ export default function PricingCalculator() {
           </p>
           <a
             href="#contact"
-            className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading text-sm"
+            className="inline-block rounded-full bg-[#ff7a45] px-8 py-3.5 text-sm font-semibold text-[#20100a] transition-transform hover:-translate-y-0.5"
           >
             Book a pricing demo
           </a>

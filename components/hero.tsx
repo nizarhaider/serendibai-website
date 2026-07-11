@@ -1,184 +1,76 @@
+import { ArrowRight, Check, Clock3, Languages, PhoneCall, Sparkles } from 'lucide-react'
+
+const waveform = [14, 25, 19, 38, 31, 52, 27, 44, 60, 35, 48, 23, 34, 18, 28, 12]
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pb-16 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-x-0 top-16 h-px bg-primary/20"></div>
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-muted/25 to-muted/60"></div>
-      </div>
-
-      <div className="w-full min-w-0 max-w-6xl mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="mb-5 text-sm font-heading tracking-widest text-accent uppercase">
-            AI call center agents for Sri Lankan businesses
-          </p>
-
-          <h1 className="text-3xl sm:text-6xl lg:text-7xl font-heading text-foreground mb-5 sm:mb-6 leading-tight text-balance">
-            <span className="inline-flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
-              <span>Answer every customer call in</span>
-              <span className="language-rotator text-primary" aria-hidden="true">
-                <span>English</span>
-                <span>සිංහල</span>
-                <span>தமிழ்</span>
-              </span>
-            </span>
-            <span className="sr-only">English, Sinhala, or Tamil</span>
+    <section className="hero-grid relative overflow-hidden bg-[#08110f] px-5 pb-20 pt-32 text-white sm:px-8 sm:pb-28 sm:pt-40 lg:px-12">
+      <div className="hero-glow" aria-hidden="true" />
+      <div className="relative mx-auto max-w-[1440px]">
+        <div className="mx-auto max-w-5xl text-center">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#69e0c1]/25 bg-[#69e0c1]/8 px-4 py-2 text-xs font-medium text-[#95f1d7]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#69e0c1] shadow-[0_0_12px_#69e0c1]" />
+            Voice AI built for Sri Lankan businesses
+          </div>
+          <h1 className="text-balance text-5xl font-semibold leading-[0.96] tracking-[-0.065em] sm:text-7xl lg:text-[92px]">
+            Your best call agent.
+            <span className="block text-[#69e0c1]">Always on the line.</span>
           </h1>
-
-          <p className="text-base sm:text-xl text-muted-foreground mb-9 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
-            SerendibAI provides managed AI voice agents for inbound calls,
-            support questions, bookings, routing, and human handoff. We set up
-            the full solution around your business, not a generic chatbot.
+          <p className="mx-auto mt-7 max-w-3xl text-pretty text-base leading-7 text-white/62 sm:text-xl sm:leading-8">
+            SerendibAI answers every customer call in English, Sinhala, or Tamil—then books, routes, summarises, and hands off with the care of your best team member.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 sm:mb-16">
-            <a
-              href="#contact"
-              className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground rounded hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 font-heading text-base"
-            >
-              Book a demo
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href="#contact" className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#ff7a45] px-7 py-3.5 text-sm font-semibold text-[#16100d] transition-transform hover:-translate-y-0.5 sm:w-auto">
+              Build your voice agent
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </a>
-            <a
-              href="#how-it-works"
-              className="w-full sm:w-auto px-8 py-4 border-2 border-primary text-primary rounded hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300 font-heading text-base"
-            >
-              See how it works
+            <a href="#platform" className="flex w-full items-center justify-center gap-2 rounded-full border border-white/18 bg-white/5 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-white/10 sm:w-auto">
+              Explore the platform
             </a>
+          </div>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/45">
+            {['Managed setup', 'Human handoff', 'No missed calls'].map((item) => (
+              <span key={item} className="inline-flex items-center gap-2"><Check className="h-3.5 w-3.5 text-[#69e0c1]" />{item}</span>
+            ))}
           </div>
         </div>
 
-        <div className="mb-14 rounded-lg border border-border bg-card shadow-xl overflow-hidden">
-          <div className="flex flex-col gap-4 border-b border-border bg-secondary px-4 py-4 text-secondary-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-secondary-foreground/65">
-                Live inbound desk
-              </p>
-              <p className="font-heading text-lg">SerendibAI operator console</p>
-            </div>
-            <div className="grid grid-cols-3 gap-2 text-center text-xs sm:w-72">
-              <div className="rounded border border-white/10 bg-white/5 p-2">
-                <span className="block font-heading text-primary">12</span>
-                Active
+        <div className="relative mx-auto mt-16 max-w-6xl lg:mt-20">
+          <div className="absolute -inset-8 rounded-[40px] bg-[#69e0c1]/8 blur-3xl" aria-hidden="true" />
+          <div className="relative overflow-hidden rounded-[28px] border border-white/12 bg-[#101a18] shadow-[0_40px_120px_rgba(0,0,0,.5)]">
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 sm:px-7">
+              <div className="flex items-center gap-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#69e0c1] text-[#08110f]"><PhoneCall className="h-4 w-4" /></span>
+                <div><p className="text-sm font-medium">Front Desk Agent</p><p className="text-xs text-white/40">Colombo Care Clinic</p></div>
               </div>
-              <div className="rounded border border-white/10 bg-white/5 p-2">
-                <span className="block font-heading text-primary">3</span>
-                Languages
-              </div>
-              <div className="rounded border border-white/10 bg-white/5 p-2">
-                <span className="block font-heading text-primary">4</span>
-                Handoffs
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr]">
-            <div className="border-b border-border bg-muted/40 p-5 lg:border-b-0 lg:border-r">
-              <div className="mb-5 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-heading">Incoming call</p>
-                  <p className="text-xs text-muted-foreground">Colombo retail customer</p>
-                </div>
-                <span className="rounded bg-primary/10 px-3 py-1 text-xs font-heading text-primary">
-                  Sinhala
-                </span>
-              </div>
-
-              <div className="space-y-3 text-sm">
-                <div className="rounded border border-border bg-card p-3">
-                  <p className="text-muted-foreground">Customer asks</p>
-                  <p className="font-heading">Can I book a delivery for tomorrow?</p>
-                </div>
-                <div className="rounded border border-border bg-card p-3">
-                  <p className="text-muted-foreground">Agent action</p>
-                  <p className="font-heading">Checks availability and creates booking</p>
-                </div>
-                <div className="rounded border border-border bg-card p-3">
-                  <p className="text-muted-foreground">Escalation rule</p>
-                  <p className="font-heading">Transfer to team if payment issue appears</p>
-                </div>
-              </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#69e0c1]/20 bg-[#69e0c1]/8 px-3 py-1.5 text-xs text-[#8cebd1]"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#69e0c1]" />Live call</div>
             </div>
 
-            <div className="p-5 sm:p-6">
-              <div className="mb-5 flex flex-wrap items-center gap-2">
-                {['English', 'සිංහල', 'தமிழ்'].map((language) => (
-                  <span
-                    key={language}
-                    className={`rounded px-3 py-2 text-sm font-heading ${
-                      language === 'සිංහල'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted text-muted-foreground'
-                    }`}
-                  >
-                    {language}
-                  </span>
-                ))}
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                <div className="rounded-lg border border-border p-4">
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Answered calls
-                  </p>
-                  <p className="mt-2 text-3xl font-heading text-foreground">248</p>
-                  <p className="text-sm text-muted-foreground">This week</p>
+            <div className="grid lg:grid-cols-[1.1fr_.9fr]">
+              <div className="border-b border-white/10 p-5 sm:p-7 lg:border-b-0 lg:border-r">
+                <div className="mb-7 flex flex-wrap items-center justify-between gap-3">
+                  <div><p className="text-xs uppercase tracking-[.2em] text-white/35">Incoming via WhatsApp</p><p className="mt-1 text-lg font-medium">+94 77 120 8841</p></div>
+                  <div className="flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-xs text-white/60"><Clock3 className="h-3.5 w-3.5" />02:14</div>
                 </div>
-                <div className="rounded-lg border border-border p-4">
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Bookings made
-                  </p>
-                  <p className="mt-2 text-3xl font-heading text-foreground">61</p>
-                  <p className="text-sm text-muted-foreground">Sent to your team</p>
+                <div className="mb-7 flex h-20 items-center justify-center gap-1 rounded-2xl border border-white/8 bg-[#0b1412] px-5" aria-label="Live audio waveform">
+                  {waveform.map((height, index) => <span key={`${height}-${index}`} className="w-1 rounded-full bg-[#69e0c1] opacity-80" style={{ height }} />)}
                 </div>
-                <div className="rounded-lg border border-border p-4">
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Human handoff
-                  </p>
-                  <p className="mt-2 text-3xl font-heading text-foreground">18</p>
-                  <p className="text-sm text-muted-foreground">Only when needed</p>
+                <div className="space-y-3">
+                  <div className="max-w-[82%] rounded-2xl rounded-tl-sm bg-white/7 p-4 text-sm leading-6 text-white/72">මට හෙට උදේ appointment එකක් දාගන්න පුළුවන්ද?</div>
+                  <div className="ml-auto max-w-[86%] rounded-2xl rounded-tr-sm bg-[#69e0c1] p-4 text-sm leading-6 text-[#0a1714]">පුළුවන්. උදේ 10:30 slot එක available. මම ඒක confirm කරන්නද?</div>
                 </div>
               </div>
 
-              <div className="mt-4 rounded-lg border border-border bg-muted/35 p-4">
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <p className="font-heading">Call summary</p>
-                  <span className="rounded bg-accent/10 px-3 py-1 text-xs font-heading text-accent">
-                    Ready for follow-up
-                  </span>
+              <div className="bg-[#0d1614] p-5 sm:p-7">
+                <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[.18em] text-white/35"><Sparkles className="h-3.5 w-3.5 text-[#ff7a45]" />Live intelligence</div>
+                <div className="mt-5 space-y-3">
+                  <div className="product-event"><span className="event-icon"><Languages className="h-4 w-4" /></span><div><p>Sinhala detected</p><span>Language switched automatically</span></div><Check className="ml-auto h-4 w-4 text-[#69e0c1]" /></div>
+                  <div className="product-event"><span className="event-icon"><Clock3 className="h-4 w-4" /></span><div><p>Appointment found</p><span>Tomorrow · 10:30 AM</span></div><Check className="ml-auto h-4 w-4 text-[#69e0c1]" /></div>
+                  <div className="product-event border-[#ff7a45]/25 bg-[#ff7a45]/6"><span className="event-icon text-[#ff9d77]"><Sparkles className="h-4 w-4" /></span><div><p>Booking ready</p><span>Waiting for customer confirmation</span></div><span className="ml-auto h-2 w-2 animate-pulse rounded-full bg-[#ff7a45]" /></div>
                 </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  Customer requested a Sinhala conversation, booked a delivery
-                  for tomorrow morning, and asked for confirmation by SMS.
-                </p>
+                <div className="mt-5 rounded-2xl border border-white/8 bg-white/[.035] p-4"><div className="flex items-center justify-between text-xs text-white/38"><span>Agent confidence</span><span className="font-mono text-[#69e0c1]">98.4%</span></div><div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/8"><div className="h-full w-[98%] rounded-full bg-gradient-to-r from-[#69e0c1] to-[#ff7a45]" /></div></div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          <div className="space-y-2">
-            <div className="text-3xl font-heading text-primary">3</div>
-            <p className="text-muted-foreground">
-              Call languages:{' '}
-              <span className="text-foreground font-heading">
-                Sinhala, Tamil, English
-              </span>
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-heading text-primary">24/7</div>
-            <p className="text-muted-foreground">
-              <span className="text-foreground font-heading">
-                Calls answered
-              </span>{' '}
-              even after hours
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-heading text-primary">1</div>
-            <p className="text-muted-foreground">
-              <span className="text-foreground font-heading">Managed setup</span>{' '}
-              for each client
-            </p>
           </div>
         </div>
       </div>

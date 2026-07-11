@@ -1,99 +1,65 @@
 'use client'
 
-import { useState } from 'react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import { useState } from 'react'
+
+const links = [
+  { href: '#platform', label: 'Platform' },
+  { href: '#use-cases', label: 'Use cases' },
+  { href: '#pricing', label: 'Pricing' },
+]
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-              <span className="text-primary-foreground font-heading text-lg">S</span>
-            </div>
-            <span className="font-heading text-lg text-foreground hidden sm:inline">
-              SerendibAI
-            </span>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#08110f]/85 backdrop-blur-xl">
+      <div className="mx-auto flex h-18 max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+        <Link href="/" className="flex items-center gap-3" aria-label="SerendibAI home">
+          <span className="brand-mark">S</span>
+          <span className="text-[17px] font-semibold tracking-[-0.03em] text-white">SerendibAI</span>
+        </Link>
+
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className="text-sm text-white/65 transition-colors hover:text-white">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <Link href="#contact" className="hidden items-center gap-2 rounded-full bg-[#ff7a45] px-5 py-2.5 text-sm font-semibold text-[#16100d] transition-transform hover:-translate-y-0.5 sm:flex">
+            Book a demo
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              How it works
-            </Link>
-            <Link href="#use-cases" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Use cases
-            </Link>
-            <Link href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Pricing
-            </Link>
-          </nav>
-
-          {/* CTA Button */}
-          <div className="flex items-center gap-4">
-            <Link
-              href="#contact"
-              className="hidden sm:inline px-6 py-2 text-sm bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading"
-            >
-              Book a demo
-            </Link>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded hover:bg-muted"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
+          <button
+            type="button"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white md:hidden"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-expanded={isOpen}
+            aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+          >
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden border-t border-border py-4 space-y-3">
-            <Link
-              href="#how-it-works"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              How it works
-            </Link>
-            <Link
-              href="#use-cases"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              Use cases
-            </Link>
-            <Link
-              href="#pricing"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#contact"
-              className="block w-full px-6 py-2 text-center text-sm bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading"
-            >
+      {isOpen ? (
+        <nav className="border-t border-white/10 bg-[#08110f] px-5 py-5 md:hidden" aria-label="Mobile navigation">
+          <div className="mx-auto grid max-w-[1440px] gap-1">
+            {links.map((link) => (
+              <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="rounded-xl px-3 py-3 text-base text-white/75 hover:bg-white/5 hover:text-white">
+                {link.label}
+              </Link>
+            ))}
+            <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-3 rounded-full bg-[#ff7a45] px-5 py-3 text-center text-sm font-semibold text-[#16100d]">
               Book a demo
             </Link>
           </div>
-        )}
-      </div>
+        </nav>
+      ) : null}
     </header>
   )
 }

@@ -29,16 +29,16 @@ const architecturePoints = [
 
 export default function ArchitectureSection() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+    <section className="bg-[#0b1714] px-5 py-24 text-white sm:px-8 sm:py-32 lg:px-12">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
         <div>
-          <p className="text-sm font-heading tracking-widest text-accent uppercase mb-4">
-            Full solution setup
+          <p className="text-xs font-semibold tracking-[.2em] text-[#69e0c1] uppercase mb-5">
+            Managed from end to end
           </p>
-          <h2 className="text-3xl sm:text-5xl font-heading mb-5 leading-tight">
-            We configure the agent around your business
+          <h2 className="text-4xl font-semibold tracking-[-.055em] sm:text-6xl mb-6 leading-[1.03]">
+            Your operation. Your rules. Your voice agent.
           </h2>
-          <p className="text-base sm:text-lg text-secondary-foreground/80 leading-relaxed mb-8">
+          <p className="max-w-xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8 mb-10">
             You do not need to build a call center system yourself. SerendibAI
             works with you to define the languages, scripts, booking steps,
             escalation rules, and reports your team needs.
@@ -48,10 +48,10 @@ export default function ArchitectureSection() {
             {architecturePoints.map((point) => {
               const Icon = point.icon
               return (
-                <div key={point.title} className="rounded-lg border border-white/10 bg-white/5 p-4">
-                  <Icon className="mb-3 h-5 w-5 text-primary" aria-hidden="true" />
-                  <h3 className="font-heading text-base mb-2">{point.title}</h3>
-                  <p className="text-sm leading-relaxed text-secondary-foreground/75">
+                <div key={point.title} className="rounded-2xl border border-white/10 bg-white/[.035] p-5">
+                  <Icon className="mb-4 h-5 w-5 text-[#69e0c1]" aria-hidden="true" />
+                  <h3 className="text-base font-semibold mb-2">{point.title}</h3>
+                  <p className="text-sm leading-6 text-white/48">
                     {point.description}
                   </p>
                 </div>
@@ -60,11 +60,11 @@ export default function ArchitectureSection() {
           </div>
         </div>
 
-        <div className="rounded-lg border border-white/10 bg-white/5 p-5 sm:p-6 shadow-xl">
+        <div className="rounded-[28px] border border-white/10 bg-white/[.045] p-5 shadow-[0_36px_100px_rgba(0,0,0,.28)] sm:p-7">
           <div className="grid grid-cols-1 gap-4">
-            <div className="rounded-lg border border-white/10 bg-secondary/70 p-4">
+            <div className="rounded-2xl border border-white/10 bg-black/10 p-4">
               <div className="flex items-center gap-3">
-                <PhoneCall className="h-5 w-5 text-primary" aria-hidden="true" />
+                <PhoneCall className="h-5 w-5 text-[#69e0c1]" aria-hidden="true" />
                 <div>
                   <p className="font-heading">Customer call</p>
                   <p className="text-sm text-secondary-foreground/70">Inbound call reaches your AI agent</p>
@@ -72,11 +72,11 @@ export default function ArchitectureSection() {
               </div>
             </div>
 
-            <div className="mx-auto h-8 w-px bg-primary/50" aria-hidden="true"></div>
+            <div className="mx-auto h-8 w-px bg-[#69e0c1]/50" aria-hidden="true"></div>
 
-            <div className="rounded-lg border border-primary/30 bg-primary/10 p-5">
+            <div className="rounded-2xl border border-[#69e0c1]/30 bg-[#69e0c1]/8 p-5">
               <div className="flex items-center gap-3 mb-4">
-                <ServerCog className="h-6 w-6 text-primary" aria-hidden="true" />
+                <ServerCog className="h-6 w-6 text-[#69e0c1]" aria-hidden="true" />
                 <div>
                   <p className="font-heading text-lg">SerendibAI managed agent</p>
                   <p className="text-sm text-secondary-foreground/70">
@@ -100,7 +100,7 @@ export default function ArchitectureSection() {
               </div>
             </div>
 
-            <div className="mx-auto h-8 w-px bg-primary/50" aria-hidden="true"></div>
+            <div className="mx-auto h-8 w-px bg-[#69e0c1]/50" aria-hidden="true"></div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="rounded-lg border border-white/10 bg-secondary/70 p-4">

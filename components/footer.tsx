@@ -2,14 +2,14 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <footer className="bg-[#08110f] px-5 py-16 text-white sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 pb-12 border-b border-white/10">
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center">
-                <span className="text-secondary font-heading text-lg">S</span>
+              <div className="brand-mark">
+                <span>S</span>
               </div>
               <span className="font-heading text-lg">SerendibAI</span>
             </div>

@@ -44,16 +44,16 @@ export default function CTASection() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-secondary text-secondary-foreground rounded-lg p-6 sm:p-10 lg:p-12 border border-primary/20">
+    <section id="contact" className="bg-white px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="bg-secondary text-secondary-foreground rounded-[32px] p-6 sm:p-10 lg:p-14 border border-white/10 shadow-[0_35px_100px_rgba(10,25,20,.2)]">
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-12 items-start">
             <div>
-              <p className="text-sm font-heading tracking-widest text-accent uppercase mb-4">
+              <p className="text-xs font-semibold tracking-[.2em] text-[#69e0c1] uppercase mb-5">
                 Book a demo
               </p>
-              <h2 className="text-3xl sm:text-5xl font-heading mb-6 leading-tight">
-                Ready to see your AI call agent in action?
+              <h2 className="text-4xl font-semibold tracking-[-.055em] sm:text-6xl mb-6 leading-[1.03]">
+                Let every call become a good experience.
               </h2>
               <p className="text-base sm:text-lg opacity-90 leading-relaxed">
                 Fill out the form and it will open WhatsApp with your demo
@@ -71,7 +71,7 @@ export default function CTASection() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="grid gap-4 rounded-lg bg-background p-4 sm:p-6 text-foreground">
+            <form onSubmit={handleSubmit} className="grid gap-4 rounded-[24px] bg-[#f3f4ef] p-5 sm:p-7 text-foreground">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <label className="grid gap-2 text-sm font-heading">
                   Name
@@ -135,13 +135,13 @@ export default function CTASection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3 bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-heading"
+                  className="w-full rounded-full bg-[#ff7a45] px-8 py-3.5 font-semibold text-[#20100a] transition-transform hover:-translate-y-0.5 sm:w-auto"
                 >
                   Send via WhatsApp
                 </button>
                 <a
                   href="#pricing"
-                  className="w-full sm:w-auto px-8 py-3 text-center border-2 border-secondary text-secondary rounded hover:bg-secondary/5 transition-colors font-heading"
+                  className="w-full rounded-full border border-secondary/20 px-8 py-3.5 text-center font-semibold text-secondary transition-colors hover:bg-secondary/5 sm:w-auto"
                 >
                   Estimate pricing
                 </a>
