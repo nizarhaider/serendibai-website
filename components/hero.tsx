@@ -20,7 +20,7 @@ export default function Hero() {
             SerendibAI answers every customer call in English, Sinhala, or Tamil—then books, routes, summarises, and hands off with the care of your best team member.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#contact" className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#ff7a45] px-7 py-3.5 text-sm font-semibold text-[#16100d] transition-transform hover:-translate-y-0.5 sm:w-auto">
+            <a href="#contact" className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#69e0c1] px-7 py-3.5 text-sm font-semibold text-[#0b1714] transition-transform hover:-translate-y-0.5 sm:w-auto">
               Build your voice agent
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </a>

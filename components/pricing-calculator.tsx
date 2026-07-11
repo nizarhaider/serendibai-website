@@ -219,7 +219,7 @@ export default function PricingCalculator() {
           </p>
           <a
             href="#contact"
-            className="inline-block rounded-full bg-[#ff7a45] px-8 py-3.5 text-sm font-semibold text-[#20100a] transition-transform hover:-translate-y-0.5"
+            className="inline-block rounded-full bg-[#69e0c1] px-8 py-3.5 text-sm font-semibold text-[#0b1714] transition-transform hover:-translate-y-0.5"
           >
             Book a pricing demo
           </a>

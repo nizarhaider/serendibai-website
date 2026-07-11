@@ -135,7 +135,7 @@ export default function CTASection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-[#ff7a45] px-8 py-3.5 font-semibold text-[#20100a] transition-transform hover:-translate-y-0.5 sm:w-auto"
+                  className="w-full rounded-full bg-[#69e0c1] px-8 py-3.5 font-semibold text-[#0b1714] transition-transform hover:-translate-y-0.5 sm:w-auto"
                 >
                   Send via WhatsApp
                 </button>

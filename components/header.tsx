@@ -30,7 +30,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link href="#contact" className="hidden items-center gap-2 rounded-full bg-[#ff7a45] px-5 py-2.5 text-sm font-semibold text-[#16100d] transition-transform hover:-translate-y-0.5 sm:flex">
+          <Link href="#contact" className="hidden items-center gap-2 rounded-full bg-[#69e0c1] px-5 py-2.5 text-sm font-semibold text-[#0b1714] transition-transform hover:-translate-y-0.5 sm:flex">
             Book a demo
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </Link>
@@ -54,7 +54,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-3 rounded-full bg-[#ff7a45] px-5 py-3 text-center text-sm font-semibold text-[#16100d]">
+            <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-3 rounded-full bg-[#69e0c1] px-5 py-3 text-center text-sm font-semibold text-[#0b1714]">
               Book a demo
             </Link>
           </div>
