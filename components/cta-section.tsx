@@ -46,13 +46,13 @@ export default function CTASection() {
   return (
     <section id="contact" className="bg-white px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
       <div className="mx-auto max-w-[1440px]">
-        <div className="bg-secondary text-secondary-foreground rounded-[32px] p-6 sm:p-10 lg:p-14 border border-white/10 shadow-[0_35px_100px_rgba(10,25,20,.2)]">
+        <div className="retell-hero relative overflow-hidden rounded-[24px] border border-white/10 p-6 text-white shadow-[0_35px_100px_rgba(10,29,58,.2)] sm:p-10 lg:p-14">
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-12 items-start">
             <div>
-              <p className="text-xs font-semibold tracking-[.2em] text-[#69e0c1] uppercase mb-5">
+              <p className="text-xs font-semibold tracking-[.2em] text-white/70 uppercase mb-5">
                 Book a demo
               </p>
-              <h2 className="text-4xl font-semibold tracking-[-.055em] sm:text-6xl mb-6 leading-[1.03]">
+              <h2 className="display-serif text-5xl sm:text-7xl mb-6 leading-[.98]">
                 Let every call become a good experience.
               </h2>
               <p className="text-base sm:text-lg opacity-90 leading-relaxed">
@@ -71,7 +71,7 @@ export default function CTASection() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="grid gap-4 rounded-[24px] bg-[#f3f4ef] p-5 sm:p-7 text-foreground">
+            <form onSubmit={handleSubmit} className="relative z-10 grid gap-4 rounded-[18px] bg-white p-5 sm:p-7 text-foreground">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <label className="grid gap-2 text-sm font-heading">
                   Name
@@ -135,13 +135,13 @@ export default function CTASection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-[#69e0c1] px-8 py-3.5 font-semibold text-[#0b1714] transition-transform hover:-translate-y-0.5 sm:w-auto"
+                  className="w-full rounded-lg bg-[#071b3a] px-8 py-3.5 font-semibold text-white transition-transform hover:-translate-y-0.5 sm:w-auto"
                 >
                   Send via WhatsApp
                 </button>
                 <a
                   href="#pricing"
-                  className="w-full rounded-full border border-secondary/20 px-8 py-3.5 text-center font-semibold text-secondary transition-colors hover:bg-secondary/5 sm:w-auto"
+                  className="w-full rounded-lg border border-secondary/20 px-8 py-3.5 text-center font-semibold text-secondary transition-colors hover:bg-secondary/5 sm:w-auto"
                 >
                   Estimate pricing
                 </a>

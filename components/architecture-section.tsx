@@ -1,123 +1,39 @@
-import { Building2, Database, LockKeyhole, PhoneCall, ServerCog, ShieldCheck, Workflow } from 'lucide-react'
+import { CalendarCheck, Database, Globe2, Languages, PhoneCall, Plus, ShieldCheck } from 'lucide-react'
 
-const architecturePoints = [
-  {
-    icon: ServerCog,
-    title: 'Call flow design',
-    description:
-      'We map how your calls should be answered, qualified, booked, escalated, and reported.',
-  },
-  {
-    icon: LockKeyhole,
-    title: 'Managed voice stack',
-    description:
-      'SerendibAI hosts and operates the voice agent, language logic, and call handling workflow.',
-  },
-  {
-    icon: Database,
-    title: 'Business records',
-    description:
-      'Call outcomes can be sent to the systems your team already uses for follow-up.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Human escalation',
-    description:
-      'Important calls can be transferred or flagged so your staff can step in with context.',
-  },
+const items = [
+  ['Connect to WhatsApp calling', 'Use the number customers already know and trust.'],
+  ['English, Sinhala, and Tamil', 'Serve every caller from one managed voice agent.'],
+  ['Bookings and business actions', 'Connect calls to calendars, records, and staff workflows.'],
+  ['Human handoff with context', 'Transfer complex calls with a transcript and clear summary.'],
 ]
 
 export default function ArchitectureSection() {
   return (
-    <section className="bg-[#0b1714] px-5 py-24 text-white sm:px-8 sm:py-32 lg:px-12">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
-        <div>
-          <p className="text-xs font-semibold tracking-[.2em] text-[#69e0c1] uppercase mb-5">
-            Managed from end to end
-          </p>
-          <h2 className="text-4xl font-semibold tracking-[-.055em] sm:text-6xl mb-6 leading-[1.03]">
-            Your operation. Your rules. Your voice agent.
-          </h2>
-          <p className="max-w-xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8 mb-10">
-            You do not need to build a call center system yourself. SerendibAI
-            works with you to define the languages, scripts, booking steps,
-            escalation rules, and reports your team needs.
-          </p>
+    <section id="how-it-works" className="bg-white px-5 py-48 text-[#202331] sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1160px]">
+        <p className="section-label">Highlights</p>
+        <h2 className="editorial-title mt-12 max-w-[560px]">A Voice Stack Optimized for Local Reach, Reliability, and Results</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {architecturePoints.map((point) => {
-              const Icon = point.icon
-              return (
-                <div key={point.title} className="rounded-2xl border border-white/10 bg-white/[.035] p-5">
-                  <Icon className="mb-4 h-5 w-5 text-[#69e0c1]" aria-hidden="true" />
-                  <h3 className="text-base font-semibold mb-2">{point.title}</h3>
-                  <p className="text-sm leading-6 text-white/48">
-                    {point.description}
-                  </p>
-                </div>
-              )
-            })}
+        <div className="mt-20 grid gap-16 lg:grid-cols-[1.08fr_.92fr] lg:items-center">
+          <div className="product-frame-soft relative min-h-[610px] overflow-hidden rounded-xl p-8 sm:p-12">
+            <div className="mx-auto flex h-[540px] max-w-[310px] flex-col overflow-hidden rounded-[42px] border-[10px] border-[#121722] bg-white shadow-[0_45px_90px_rgba(10,29,58,.24)]">
+              <div className="mx-auto mt-2 h-6 w-24 rounded-full bg-[#121722]" />
+              <div className="px-5 pt-7 text-center"><p className="text-xs text-[#7d8594]">Incoming WhatsApp call</p><p className="mt-2 text-lg font-semibold">SerendibAI</p></div>
+              <div className="mx-5 mt-7 rounded-2xl bg-[#f2f4fa] p-4"><div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-full bg-[#315fff] text-white"><PhoneCall className="h-4 w-4" /></span><div><p className="text-xs font-semibold">Front Desk Agent</p><p className="text-[9px] text-[#7c8594]">Sinhala detected</p></div></div></div>
+              <div className="mx-5 mt-3 space-y-3">{[
+                [Languages, 'Language selected', 'සිංහල'],
+                [CalendarCheck, 'Appointment found', 'Tomorrow · 10:30 AM'],
+                [Database, 'Customer record', 'Ready to update'],
+              ].map(([Icon, label, value]) => <div key={label} className="flex items-center gap-3 rounded-xl border p-3"><Icon className="h-4 w-4 text-[#315fff]" /><div><p className="text-[9px] text-[#7c8594]">{label}</p><p className="text-[10px] font-medium">{value}</p></div></div>)}</div>
+              <button type="button" className="mx-5 mt-auto mb-5 rounded-xl bg-[#071b3a] py-3 text-xs font-semibold text-white">Answer with AI</button>
+            </div>
           </div>
-        </div>
 
-        <div className="rounded-[28px] border border-white/10 bg-white/[.045] p-5 shadow-[0_36px_100px_rgba(0,0,0,.28)] sm:p-7">
-          <div className="grid grid-cols-1 gap-4">
-            <div className="rounded-2xl border border-white/10 bg-black/10 p-4">
-              <div className="flex items-center gap-3">
-                <PhoneCall className="h-5 w-5 text-[#69e0c1]" aria-hidden="true" />
-                <div>
-                  <p className="font-heading">Customer call</p>
-                  <p className="text-sm text-secondary-foreground/70">Inbound call reaches your AI agent</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mx-auto h-8 w-px bg-[#69e0c1]/50" aria-hidden="true"></div>
-
-            <div className="rounded-2xl border border-[#69e0c1]/30 bg-[#69e0c1]/8 p-5">
-              <div className="flex items-center gap-3 mb-4">
-                <ServerCog className="h-6 w-6 text-[#69e0c1]" aria-hidden="true" />
-                <div>
-                  <p className="font-heading text-lg">SerendibAI managed agent</p>
-                  <p className="text-sm text-secondary-foreground/70">
-                    Language handling, call workflow, and action logic
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="rounded border border-white/10 bg-white/5 p-3">
-                  Sinhala
-                </div>
-                <div className="rounded border border-white/10 bg-white/5 p-3">
-                  Tamil
-                </div>
-                <div className="rounded border border-white/10 bg-white/5 p-3">
-                  English
-                </div>
-                <div className="rounded border border-white/10 bg-white/5 p-3">
-                  Workflow
-                </div>
-              </div>
-            </div>
-
-            <div className="mx-auto h-8 w-px bg-[#69e0c1]/50" aria-hidden="true"></div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="rounded-lg border border-white/10 bg-secondary/70 p-4">
-                <Workflow className="mb-3 h-5 w-5 text-primary" aria-hidden="true" />
-                <p className="font-heading">Bookings</p>
-                <p className="text-sm text-secondary-foreground/70">Appointments and requests</p>
-              </div>
-              <div className="rounded-lg border border-white/10 bg-secondary/70 p-4">
-                <Database className="mb-3 h-5 w-5 text-primary" aria-hidden="true" />
-                <p className="font-heading">Reports</p>
-                <p className="text-sm text-secondary-foreground/70">Summaries and follow-up</p>
-              </div>
-              <div className="rounded-lg border border-white/10 bg-secondary/70 p-4">
-                <Building2 className="mb-3 h-5 w-5 text-primary" aria-hidden="true" />
-                <p className="font-heading">Team</p>
-                <p className="text-sm text-secondary-foreground/70">Handoff when needed</p>
-              </div>
+          <div>
+            {items.map(([title, description], index) => <div key={title} className="border-b py-7 first:border-t"><div className="flex items-center justify-between gap-6"><h3 className={`text-xl leading-6 ${index === 0 ? 'text-[#315fff]' : ''}`}>{title}</h3>{index === 0 ? <span className="text-2xl">−</span> : <Plus className="h-5 w-5" />}</div>{index === 0 ? <p className="mt-6 max-w-[430px] text-sm leading-6">{description}</p> : null}</div>)}
+            <div className="mt-10 grid grid-cols-2 gap-3">
+              <div className="rounded-xl bg-[#f3f4f9] p-5"><Globe2 className="h-5 w-5 text-[#315fff]" /><p className="mt-6 text-sm font-medium">Managed locally</p></div>
+              <div className="rounded-xl bg-[#f3f4f9] p-5"><ShieldCheck className="h-5 w-5 text-[#315fff]" /><p className="mt-6 text-sm font-medium">Guardrails included</p></div>
             </div>
           </div>
         </div>

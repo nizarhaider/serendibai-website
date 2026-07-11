@@ -1,63 +1,57 @@
 'use client'
 
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { ChevronDown, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const links = [
-  { href: '#platform', label: 'Platform' },
-  { href: '#use-cases', label: 'Use cases' },
-  { href: '#pricing', label: 'Pricing' },
+const navItems = [
+  { label: 'Product', href: '#platform', menu: true },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'For Business', href: '#use-cases', menu: true },
+  { label: 'For Developers', href: '#platform', menu: true },
+  { label: 'Resources', href: '#how-it-works', menu: true },
+  { label: 'Company', href: '#contact', menu: true },
 ]
+
+function BrandDots() {
+  return <span className="brand-dots" aria-hidden="true">{Array.from({ length: 9 }, (_, index) => <span key={index} />)}</span>
+}
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#08110f]/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-18 max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
-        <Link href="/" className="flex items-center gap-3" aria-label="SerendibAI home">
-          <span className="brand-mark">S</span>
-          <span className="text-[17px] font-semibold tracking-[-0.03em] text-white">SerendibAI</span>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-2 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-[62px] max-w-[1160px] items-center justify-between rounded-xl bg-white/92 px-4 shadow-[0_10px_35px_rgba(10,29,58,.04)] backdrop-blur-xl sm:px-5">
+        <Link href="/" className="flex items-center gap-2 text-[#0a1d3a]" aria-label="SerendibAI home">
+          <BrandDots />
+          <span className="text-[19px] font-semibold tracking-[-.05em]">SerendibAI</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm text-white/65 transition-colors hover:text-white">
-              {link.label}
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <Link key={item.label} href={item.href} className="inline-flex items-center gap-1.5 text-[13px] text-[#172136] transition-colors hover:text-[#315fff]">
+              {item.label}
+              {item.menu ? <ChevronDown className="h-3 w-3" aria-hidden="true" /> : null}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <Link href="#contact" className="hidden items-center gap-2 rounded-full bg-[#69e0c1] px-5 py-2.5 text-sm font-semibold text-[#0b1714] transition-transform hover:-translate-y-0.5 sm:flex">
-            Book a demo
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-          <button
-            type="button"
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white md:hidden"
-            onClick={() => setIsOpen((open) => !open)}
-            aria-expanded={isOpen}
-            aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+        <div className="hidden items-center gap-1.5 sm:flex">
+          <Link href="#contact" className="rounded-lg bg-[#f4f5fa] px-4 py-2.5 text-xs font-medium text-[#0a1d3a]">Login</Link>
+          <Link href="#contact" className="rounded-lg bg-[#f4f5fa] px-4 py-2.5 text-xs font-medium text-[#0a1d3a]">Contact Sales</Link>
+          <Link href="#contact" className="rounded-lg bg-[#071b3a] px-4 py-2.5 text-xs font-semibold text-white">Try For Free</Link>
         </div>
+
+        <button type="button" className="grid h-10 w-10 place-items-center rounded-lg bg-[#f4f5fa] text-[#0a1d3a] lg:hidden" onClick={() => setIsOpen((open) => !open)} aria-expanded={isOpen} aria-label={isOpen ? 'Close navigation' : 'Open navigation'}>
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
 
       {isOpen ? (
-        <nav className="border-t border-white/10 bg-[#08110f] px-5 py-5 md:hidden" aria-label="Mobile navigation">
-          <div className="mx-auto grid max-w-[1440px] gap-1">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="rounded-xl px-3 py-3 text-base text-white/75 hover:bg-white/5 hover:text-white">
-                {link.label}
-              </Link>
-            ))}
-            <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-3 rounded-full bg-[#69e0c1] px-5 py-3 text-center text-sm font-semibold text-[#0b1714]">
-              Book a demo
-            </Link>
-          </div>
+        <nav className="mx-auto mt-2 grid max-w-[1160px] gap-1 rounded-xl bg-white p-4 shadow-xl lg:hidden" aria-label="Mobile navigation">
+          {navItems.map((item) => <Link key={item.label} href={item.href} onClick={() => setIsOpen(false)} className="rounded-lg px-3 py-3 text-sm text-[#172136] hover:bg-[#f4f5fa]">{item.label}</Link>)}
+          <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-2 rounded-lg bg-[#071b3a] px-4 py-3 text-center text-sm font-semibold text-white">Try For Free</Link>
         </nav>
       ) : null}
     </header>
