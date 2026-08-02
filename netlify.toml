@@ -1,11 +1,11 @@
 [[redirects]]
 from = "/dashboard"
-to = "https://comma-fanfare-drew.ngrok-free.dev/dashboard"
-status = 200
+to = "https://dashboard.serendibai.lk/dashboard"
+status = 302
 force = true
 
 [[redirects]]
 from = "/dashboard/*"
-to = "https://comma-fanfare-drew.ngrok-free.dev/dashboard/:splat"
-status = 200
+to = "https://dashboard.serendibai.lk/dashboard/:splat"
+status = 302
 force = true
