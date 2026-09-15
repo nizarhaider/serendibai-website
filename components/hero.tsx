@@ -1,39 +1,35 @@
-import { ArrowUpRight, Star } from 'lucide-react'
+import { Check, Clock, PhoneCall, Radio } from 'lucide-react'
 
-const industries = ['Healthcare', 'Retail', 'Hospitality', 'Logistics', 'Services']
+const conversation = [
+  ['Caller', 'හෙලෝ, මට විස්තර ටිකක් දැනගන්න පුළුවන්ද?', 'Sinhala'],
+  ['Serendib', 'ආයුබෝවන්! ඔව්, ඔබට කොහොමද උදව් කරන්න පුළුවන්?', ''],
+  ['Caller', 'Can we continue in English?', 'Switches to English'],
+  ['Serendib', 'Of course. What would you like to know about our services?', ''],
+  ['Caller', 'I’d like to speak to someone about a booking.', ''],
+  ['Serendib', 'Certainly. Let me take your details so the team can help.', ''],
+]
 
 export default function Hero() {
   return (
-    <section className="bg-white px-2 pb-8 pt-[72px] sm:px-4">
-      <div className="retell-hero relative mx-auto flex min-h-[820px] max-w-[1424px] overflow-hidden rounded-[23px] px-6 py-16 text-white sm:px-12 lg:px-[132px]">
-        <div className="relative z-10 flex w-full flex-col">
-          <div className="mx-auto mt-28 text-center sm:mt-36">
-            <p className="text-sm font-medium uppercase tracking-[-.02em]">#1 multilingual voice agent platform for Sri Lanka</p>
-            <h1 className="display-serif mx-auto mt-14 max-w-[790px] text-balance text-6xl leading-[.98] sm:text-7xl lg:text-[90px]">
-              Meet your AI call center from the future.
-            </h1>
+    <>
+      <section className="hero-surface text-white">
+        <div className="site-section grid items-center gap-12 py-20 lg:grid-cols-[1.02fr_.98fr] lg:gap-14">
+          <div>
+            <div className="mb-7 inline-flex flex-wrap items-center gap-3 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs text-[#a8c2be]"><span className="flex gap-1"><span className="language-chip">EN</span><span className="language-chip" lang="si">සිං</span><span className="language-chip" lang="ta">த</span></span>Three languages. One agent.</div>
+            <h1 className="text-balance text-[42px] leading-[1.05] tracking-[-.04em] sm:text-[56px]">Your business never misses another conversation.</h1>
+            <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-[#a8c2be]">Give your customers a helpful voice on WhatsApp, in English, Sinhala, and Tamil. SerendibAI answers questions, captures enquiries, and keeps your team connected to every call.</p>
+            <div className="mt-8 flex flex-wrap gap-3"><a href="#contact" className="site-button brass"><PhoneCall size={17} />Book a live demo</a><a href="https://portal.serendibai.lk/login" className="site-button ghost">Open your workspace</a></div>
+            <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-xs text-[#a8c2be]">{['Built in Sri Lanka', 'Your business knowledge', 'Managed setup'].map(t => <span key={t} className="flex items-center gap-2"><Check size={14} />{t}</span>)}</div>
           </div>
-
-          <div className="mt-auto flex flex-col gap-6 pb-1 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-[360px]">
-              <div className="mb-3 flex items-center gap-1 rounded bg-white/20 px-2 py-1 text-xs w-fit">
-                {Array.from({ length: 5 }, (_, index) => <Star key={index} className="h-3 w-3 fill-white" />)}
-                <span className="ml-1">Built for local teams</span>
-              </div>
-              <p className="text-sm font-medium leading-5 text-white/92">Build, deploy, and manage AI voice agents that sound natural, execute tasks, and speak English, Sinhala, and Tamil.</p>
-            </div>
-
-            <a href="#contact" className="group flex w-full max-w-[246px] items-center justify-between rounded-xl bg-white/20 p-3 text-white backdrop-blur-md transition-colors hover:bg-white/28">
-              <span className="display-serif text-2xl leading-none">Try Our Live<br />Demo</span>
-              <span className="grid h-[70px] w-[70px] place-items-center rounded-lg bg-white text-[#315fff] shadow-lg"><ArrowUpRight className="h-6 w-6 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></span>
-            </a>
+          <div className="overflow-hidden rounded-[18px] border border-white/15 bg-white/5">
+            <div className="flex items-center gap-2 border-b border-white/10 px-5 py-4 text-xs text-[#a8c2be]"><span className="h-2 w-2 rounded-full bg-[#75ce91]" /><strong className="text-white">WhatsApp voice call</strong><span className="ml-auto flex items-center gap-1"><Clock size={13} />After hours</span></div>
+            <div className="py-3">{conversation.map(([who, text, note], i) => <div key={i} className="flex gap-4 px-5 py-3"><span className={`w-12 shrink-0 pt-1 text-[11px] font-semibold ${who === 'Serendib' ? 'text-[#e8b65c]' : 'text-[#9fbab6]'}`}>{who}</span><div className="text-sm leading-relaxed text-[#e4eeec]"><p lang={i < 2 ? 'si' : 'en'}>{text}</p>{note && <p className="mt-1 text-[11px] text-[#9fbab6]">{note}</p>}</div></div>)}</div>
+            <div className="mx-4 mb-4 flex items-center gap-3 rounded-xl border border-[#e8b65c]/25 bg-[#c08a2e]/15 px-4 py-3 text-xs"><Radio size={17} className="text-[#e8b65c]" /><span>One conversation, across languages.</span></div>
+            <div className="border-t border-white/10 px-5 py-3 text-right text-[11px] text-[#9fbab6]">Illustrative conversation</div>
           </div>
         </div>
-      </div>
-
-      <div className="mx-auto flex max-w-[1160px] flex-wrap items-center justify-between gap-x-8 gap-y-5 px-4 py-10 text-[#0a1d3a]">
-        {industries.map((industry) => <span key={industry} className="text-xl font-semibold tracking-[-.045em] opacity-65 sm:text-2xl">{industry}</span>)}
-      </div>
-    </section>
+      </section>
+      <div className="border-b bg-muted/50"><div className="site-section flex flex-wrap items-center justify-between gap-5 py-7"><span className="text-xs text-muted-foreground">Built for the businesses people call every day</span>{['Healthcare', 'Hospitality', 'Retail', 'Services'].map(t => <span key={t} className="text-base font-semibold text-primary/70">{t}</span>)}</div></div>
+    </>
   )
 }

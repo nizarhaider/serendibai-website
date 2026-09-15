@@ -2,6 +2,7 @@ declare module 'react-slider' {
   import type { ComponentType } from 'react'
 
   export interface ReactSliderProps {
+    ariaLabel?: string
     value?: number | readonly number[]
     onChange?: (value: number | number[], index: number) => void
     min?: number

@@ -1,43 +1,6 @@
-import { CalendarCheck, Database, Globe2, Languages, PhoneCall, Plus, ShieldCheck } from 'lucide-react'
-
-const items = [
-  ['Connect to WhatsApp calling', 'Use the number customers already know and trust.'],
-  ['English, Sinhala, and Tamil', 'Serve every caller from one managed voice agent.'],
-  ['Bookings and business actions', 'Connect calls to calendars, records, and staff workflows.'],
-  ['Human handoff with context', 'Transfer complex calls with a transcript and clear summary.'],
-]
+const steps = [['Tell us about your business', 'Share your call flow, opening hours, languages, and the questions customers ask.'], ['Bring your business information', 'Add the documents and product details your agent needs to answer accurately.'], ['Test a conversation', 'Try your agent, review the transcript, and fine-tune its instructions with our team.'], ['Connect your customers', 'Complete your WhatsApp setup and start reviewing conversations in your portal.']]
+const industries = [['Clinics', 'Service enquiries and appointment requests.'], ['Hotels & villas', 'Guest questions, facilities, and reservation enquiries.'], ['Retail & spare parts', 'Product questions, prices, and availability.'], ['Professional services', 'Business enquiries and follow-up requests.'], ['Salons & spas', 'Service menus and booking enquiries.'], ['Education & training', 'Course details, schedules, and enrolment questions.']]
 
 export default function ArchitectureSection() {
-  return (
-    <section id="how-it-works" className="bg-white px-5 py-48 text-[#202331] sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-[1160px]">
-        <p className="section-label">Highlights</p>
-        <h2 className="editorial-title mt-12 max-w-[560px]">A Voice Stack Optimized for Local Reach, Reliability, and Results</h2>
-
-        <div className="mt-20 grid gap-16 lg:grid-cols-[1.08fr_.92fr] lg:items-center">
-          <div className="product-frame-soft relative min-h-[610px] overflow-hidden rounded-xl p-8 sm:p-12">
-            <div className="mx-auto flex h-[540px] max-w-[310px] flex-col overflow-hidden rounded-[42px] border-[10px] border-[#121722] bg-white shadow-[0_45px_90px_rgba(10,29,58,.24)]">
-              <div className="mx-auto mt-2 h-6 w-24 rounded-full bg-[#121722]" />
-              <div className="px-5 pt-7 text-center"><p className="text-xs text-[#7d8594]">Incoming WhatsApp call</p><p className="mt-2 text-lg font-semibold">SerendibAI</p></div>
-              <div className="mx-5 mt-7 rounded-2xl bg-[#f2f4fa] p-4"><div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-full bg-[#315fff] text-white"><PhoneCall className="h-4 w-4" /></span><div><p className="text-xs font-semibold">Front Desk Agent</p><p className="text-[9px] text-[#7c8594]">Sinhala detected</p></div></div></div>
-              <div className="mx-5 mt-3 space-y-3">{[
-                [Languages, 'Language selected', 'සිංහල'],
-                [CalendarCheck, 'Appointment found', 'Tomorrow · 10:30 AM'],
-                [Database, 'Customer record', 'Ready to update'],
-              ].map(([Icon, label, value]) => <div key={label} className="flex items-center gap-3 rounded-xl border p-3"><Icon className="h-4 w-4 text-[#315fff]" /><div><p className="text-[9px] text-[#7c8594]">{label}</p><p className="text-[10px] font-medium">{value}</p></div></div>)}</div>
-              <button type="button" className="mx-5 mt-auto mb-5 rounded-xl bg-[#071b3a] py-3 text-xs font-semibold text-white">Answer with AI</button>
-            </div>
-          </div>
-
-          <div>
-            {items.map(([title, description], index) => <div key={title} className="border-b py-7 first:border-t"><div className="flex items-center justify-between gap-6"><h3 className={`text-xl leading-6 ${index === 0 ? 'text-[#315fff]' : ''}`}>{title}</h3>{index === 0 ? <span className="text-2xl">−</span> : <Plus className="h-5 w-5" />}</div>{index === 0 ? <p className="mt-6 max-w-[430px] text-sm leading-6">{description}</p> : null}</div>)}
-            <div className="mt-10 grid grid-cols-2 gap-3">
-              <div className="rounded-xl bg-[#f3f4f9] p-5"><Globe2 className="h-5 w-5 text-[#315fff]" /><p className="mt-6 text-sm font-medium">Managed locally</p></div>
-              <div className="rounded-xl bg-[#f3f4f9] p-5"><ShieldCheck className="h-5 w-5 text-[#315fff]" /><p className="mt-6 text-sm font-medium">Guardrails included</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+  return <><section id="how-it-works" className="site-section grid gap-12 py-20 sm:py-24 md:grid-cols-2"><div><p className="section-label">Getting started</p><h2 className="editorial-title mt-3">From your first brief<br />to your first call.</h2><p className="mt-5 max-w-md text-base leading-7 text-muted-foreground">We work with you on the setup, so your agent starts with the context that matters to your business.</p><a href="#contact" className="site-button mt-7">Talk through your setup</a></div><div>{steps.map(([title, text], i) => <div key={title} className="flex gap-4 border-b py-5 first:pt-0"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-sm font-semibold text-white">{i + 1}</span><div><h3 className="text-base">{title}</h3><p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p></div></div>)}</div></section><section id="use-cases" className="border-y bg-muted/40"><div className="site-section py-20"><p className="section-label">Industries</p><h2 className="editorial-title mt-3">Built here. For businesses here.</h2><p className="mt-5 text-base text-muted-foreground">Start with the conversations your customers already have.</p><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{industries.map(([title, text]) => <article className="rounded-xl border bg-white p-6" key={title}><h3 className="text-base">{title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}</div></div></section></>
 }

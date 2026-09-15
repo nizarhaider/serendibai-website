@@ -30,29 +30,29 @@ export default function PricingCalculator() {
   const totalCost = Math.round(5000 + values.callsPerMonth * 25 + values.callsPerMonth * values.minutesPerCall * 5 + values.concurrentCalls * 2000)
 
   return (
-    <section className="bg-white px-5 py-48 text-[#202331] sm:px-8 lg:px-12">
+    <section className="bg-white px-5 py-24 text-[#0e1c1b] sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1160px]">
         <p className="section-label">Pricing</p>
         <div className="mt-12 grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
           <div>
-            <h2 className="editorial-title max-w-[430px]">Simple pricing that grows with your call operations</h2>
-            <p className="mt-7 max-w-[390px] text-base leading-7 text-[#596273]">Use the calculator for an indicative monthly estimate. We confirm the final plan after reviewing your call flow, integrations, languages, and support needs.</p>
-            <a href="#contact" className="mt-10 inline-flex items-center gap-3 rounded-lg bg-[#071b3a] px-5 py-3 text-sm font-semibold text-white">Talk to our team <ArrowUpRight className="h-4 w-4" /></a>
+            <h2 className="editorial-title max-w-[430px]">A clear estimate, in rupees.</h2>
+            <p className="mt-7 max-w-[390px] text-base leading-7 text-[#5c6f6c]">Use the calculator for an indicative monthly estimate. We confirm the final plan after reviewing your call flow, integrations, languages, and support needs.</p>
+            <a href="#contact" className="mt-10 inline-flex items-center gap-3 rounded-lg bg-[#0c2624] px-5 py-3 text-sm font-semibold text-white">Talk to our team <ArrowUpRight className="h-4 w-4" /></a>
           </div>
 
           <div className="product-frame-soft rounded-xl p-5 sm:p-10">
             <div className="ui-window rounded-xl bg-white p-6 sm:p-9">
-              <div className="flex items-center justify-between border-b pb-5"><div><p className="text-sm font-semibold">Monthly estimate</p><p className="mt-1 text-xs text-[#7a8392]">All prices in LKR</p></div><p className="display-serif text-4xl text-[#315fff]"><span className="hidden sm:inline">₨{totalCost.toLocaleString()}</span><span className="sm:hidden">{formatCurrency(totalCost)}</span></p></div>
+              <div className="flex items-center justify-between border-b pb-5"><div><p className="text-sm font-semibold">Monthly estimate</p><p className="mt-1 text-xs text-[#5c6f6c]">All prices in LKR</p></div><p className="display-serif text-4xl text-[#0c2624]"><span className="hidden sm:inline">₨{totalCost.toLocaleString()}</span><span className="sm:hidden">{formatCurrency(totalCost)}</span></p></div>
               <div className="mt-8 space-y-9">
                 {controls.map((control) => (
                   <div key={control.key}>
-                    <div className="mb-4 flex items-baseline justify-between gap-4"><label className="text-sm">{control.label}</label><span className="font-mono text-sm font-medium text-[#315fff]"><span className="hidden sm:inline">{values[control.key].toLocaleString()}{control.suffix}</span><span className="sm:hidden">{formatNumberCompact(values[control.key])}{control.suffix}</span></span></div>
-                    <Slider value={values[control.key]} onChange={(value) => setValues((current) => ({ ...current, [control.key]: Array.isArray(value) ? value[0] : value }))} min={control.min} max={control.max} step={control.step} className="slider" thumbClassName="slider-thumb" trackClassName="slider-track" />
-                    <div className="mt-2 flex justify-between text-[10px] text-[#8a92a0]"><span>{control.min}</span><span>{control.max.toLocaleString()}</span></div>
+                    <div className="mb-4 flex items-baseline justify-between gap-4"><label className="text-sm">{control.label}</label><span className="font-mono text-sm font-medium text-[#0c2624]"><span className="hidden sm:inline">{values[control.key].toLocaleString()}{control.suffix}</span><span className="sm:hidden">{formatNumberCompact(values[control.key])}{control.suffix}</span></span></div>
+                    <Slider value={values[control.key]} onChange={(value) => setValues((current) => ({ ...current, [control.key]: Array.isArray(value) ? value[0] : value }))} min={control.min} max={control.max} step={control.step} ariaLabel={control.label} className="slider" thumbClassName="slider-thumb" trackClassName="slider-track" />
+                    <div className="mt-2 flex justify-between text-[10px] text-[#5c6f6c]"><span>{control.min}</span><span>{control.max.toLocaleString()}</span></div>
                   </div>
                 ))}
               </div>
-              <div className="mt-9 grid grid-cols-2 gap-3 border-t pt-6 text-xs"><div className="rounded-lg bg-[#f5f6fa] p-4"><p className="text-[#7b8493]">Base platform</p><p className="mt-2 font-semibold">₨5,000</p></div><div className="rounded-lg bg-[#f5f6fa] p-4"><p className="text-[#7b8493]">Managed setup</p><p className="mt-2 font-semibold">Included</p></div></div>
+              <div className="mt-9 grid grid-cols-2 gap-3 border-t pt-6 text-xs"><div className="rounded-lg bg-[#eef2f0] p-4"><p className="text-[#5c6f6c]">Base platform</p><p className="mt-2 font-semibold">₨5,000</p></div><div className="rounded-lg bg-[#eef2f0] p-4"><p className="text-[#5c6f6c]">Managed setup</p><p className="mt-2 font-semibold">Included</p></div></div>
             </div>
           </div>
         </div>

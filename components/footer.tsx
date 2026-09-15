@@ -3,12 +3,12 @@ import Link from 'next/link'
 const columns = [
   { title: 'Product', links: [['Platform', '#platform'], ['Use cases', '#use-cases'], ['Pricing', '#pricing']] },
   { title: 'Resources', links: [['How it works', '#how-it-works'], ['Languages', '#how-it-works'], ['Book a demo', '#contact']] },
-  { title: 'Company', links: [['Contact', '#contact'], ['For business', '#use-cases'], ['Dashboard', '#contact']] },
+  { title: 'Company', links: [['Contact', '#contact'], ['For business', '#use-cases'], ['Dashboard', 'https://portal.serendibai.lk/dashboard']] },
 ]
 
 export default function Footer() {
   return (
-    <footer className="bg-[#071b3a] px-5 py-20 text-white sm:px-8 lg:px-12">
+    <footer className="bg-[#0c2624] px-5 py-20 text-white sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1160px]">
         <div className="grid gap-12 border-b border-white/15 pb-16 md:grid-cols-[1.2fr_1.8fr]">
           <div><div className="flex items-center gap-2"><span className="brand-dots">{Array.from({ length: 9 }, (_, index) => <span key={index} />)}</span><span className="text-xl font-semibold tracking-[-.05em]">SerendibAI</span></div><p className="mt-5 max-w-xs text-sm leading-6 text-white/58">Managed multilingual AI call center agents for Sri Lankan businesses.</p></div>

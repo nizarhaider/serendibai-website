@@ -45,15 +45,15 @@ export default function CTASection() {
 
   return (
     <section id="contact" className="bg-white px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
-      <div className="mx-auto max-w-[1440px]">
+      <div className="mx-auto max-w-[1180px]">
         <div className="retell-hero relative overflow-hidden rounded-[24px] border border-white/10 p-6 text-white shadow-[0_35px_100px_rgba(10,29,58,.2)] sm:p-10 lg:p-14">
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-12 items-start">
             <div>
               <p className="text-xs font-semibold tracking-[.2em] text-white/70 uppercase mb-5">
                 Book a demo
               </p>
-              <h2 className="display-serif text-5xl sm:text-7xl mb-6 leading-[.98]">
-                Let every call become a good experience.
+              <h2 className="display-serif text-4xl sm:text-5xl mb-6 leading-[.98]">
+                Let it answer the next one.
               </h2>
               <p className="text-base sm:text-lg opacity-90 leading-relaxed">
                 Fill out the form and it will open WhatsApp with your demo
@@ -135,7 +135,7 @@ export default function CTASection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-[#071b3a] px-8 py-3.5 font-semibold text-white transition-transform hover:-translate-y-0.5 sm:w-auto"
+                  className="w-full rounded-lg bg-[#0c2624] px-8 py-3.5 font-semibold text-white transition-transform hover:-translate-y-0.5 sm:w-auto"
                 >
                   Send via WhatsApp
                 </button>
