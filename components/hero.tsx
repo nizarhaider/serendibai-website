@@ -18,7 +18,7 @@ export default function Hero() {
             <div className="mb-7 inline-flex flex-wrap items-center gap-3 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs text-[#a8c2be]"><span className="flex gap-1"><span className="language-chip">EN</span><span className="language-chip" lang="si">සිං</span><span className="language-chip" lang="ta">த</span></span>Three languages. One agent.</div>
             <h1 className="text-balance text-[42px] leading-[1.05] tracking-[-.04em] sm:text-[56px]">Your business never misses another conversation.</h1>
             <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-[#a8c2be]">Give your customers a helpful voice on WhatsApp, in English, Sinhala, and Tamil. SerendibAI answers questions, captures enquiries, and keeps your team connected to every call.</p>
-            <div className="mt-8 flex flex-wrap gap-3"><a href="#contact" className="site-button brass"><PhoneCall size={17} />Book a live demo</a><a href="https://portal.serendibai.lk/login" className="site-button ghost">Open your workspace</a></div>
+            <div className="mt-8 flex flex-wrap gap-3"><a href="#try-demo" className="site-button brass"><PhoneCall size={17} />Try a live call</a><a href="https://portal.serendibai.lk/login" className="site-button ghost">Open your workspace</a></div>
             <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-xs text-[#a8c2be]">{['Built in Sri Lanka', 'Your business knowledge', 'Managed setup'].map(t => <span key={t} className="flex items-center gap-2"><Check size={14} />{t}</span>)}</div>
           </div>
           <div className="overflow-hidden rounded-[18px] border border-white/15 bg-white/5">

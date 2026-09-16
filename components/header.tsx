@@ -4,7 +4,7 @@ import { Menu, Radio, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const navItems = [['What it does', '#platform'], ['Features', '#features'], ['Industries', '#use-cases'], ['Pricing', '#pricing']]
+const navItems = [['What it does', '#platform'], ['Try a call', '#try-demo'], ['Features', '#features'], ['Pricing', '#pricing']]
 
 export default function Header() {
   const [open, setOpen] = useState(false)

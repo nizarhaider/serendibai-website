@@ -6,6 +6,7 @@ import ArchitectureSection from '@/components/architecture-section'
 import PricingCalculator from '@/components/pricing-calculator'
 import CTASection from '@/components/cta-section'
 import Footer from '@/components/footer'
+import CallDemo from '@/components/call-demo'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <Hero />
       <ConversationDemo />
+      <CallDemo />
       <Features />
       <ArchitectureSection />
       <section id="pricing">
