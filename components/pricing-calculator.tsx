@@ -1,61 +1,91 @@
 'use client'
 
 import { useState } from 'react'
-import Slider from 'react-slider'
-import { ArrowUpRight } from 'lucide-react'
-import { formatCurrency, formatNumberCompact } from '@/lib/format-number'
-import '../styles/slider.css'
+import { ArrowUpRight, Check } from 'lucide-react'
 
-type CalculatorState = {
-  callsPerMonth: number
-  minutesPerCall: number
-  concurrentCalls: number
-}
-
-const controls: Array<{
-  key: keyof CalculatorState
-  label: string
-  min: number
-  max: number
-  step: number
-  suffix?: string
-}> = [
-  { key: 'callsPerMonth', label: 'Inbound calls per month', min: 100, max: 5000, step: 100 },
-  { key: 'minutesPerCall', label: 'Average minutes per call', min: 1, max: 60, step: 1, suffix: ' min' },
-  { key: 'concurrentCalls', label: 'Simultaneous calls', min: 1, max: 20, step: 1 },
+const plans = [
+  { name: 'Starter', price: 49900, minutes: 300, concurrent: 1, description: 'For a small business getting started.' },
+  { name: 'Growth', price: 99900, minutes: 1000, concurrent: 3, description: 'For a team with a steady flow of enquiries.' },
+  { name: 'Scale', price: 249900, minutes: 3000, concurrent: 5, description: 'For a busy business handling more calls.' },
+  { name: 'Custom', price: null, minutes: null, concurrent: null, description: 'For higher volumes and tailored integrations.' },
 ]
 
+const controls = [
+  { key: 'calls', label: 'Inbound calls per month', min: 50, max: 5000, step: 50, suffix: '' },
+  { key: 'duration', label: 'Average minutes per call', min: 1, max: 30, step: 1, suffix: ' min' },
+  { key: 'concurrent', label: 'Simultaneous calls', min: 1, max: 20, step: 1, suffix: '' },
+] as const
+
+const number = (value: number) => value.toLocaleString('en-US')
+
 export default function PricingCalculator() {
-  const [values, setValues] = useState<CalculatorState>({ callsPerMonth: 500, minutesPerCall: 5, concurrentCalls: 2 })
-  const totalCost = Math.round(5000 + values.callsPerMonth * 25 + values.callsPerMonth * values.minutesPerCall * 5 + values.concurrentCalls * 2000)
+  const [values, setValues] = useState({ calls: 200, duration: 3, concurrent: 2 })
+  const minutes = values.calls * values.duration
+  const recommended = plans.find((plan) => plan.minutes !== null && plan.concurrent !== null && minutes <= plan.minutes && values.concurrent <= plan.concurrent && values.duration <= 10) ?? plans[3]
+  const message = `Hi SerendibAI, I'm interested in ${recommended.name}. My estimate is ${values.calls} inbound WhatsApp calls per month, ${values.duration} minutes per call (${minutes} minutes monthly), and ${values.concurrent} simultaneous calls. Please help me get started.`
 
   return (
     <section className="bg-white px-5 py-24 text-[#0e1c1b] sm:px-8 lg:px-12">
       <div className="mx-auto max-w-[1160px]">
         <p className="section-label">Pricing</p>
-        <div className="mt-12 grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
+        <div className="mt-12 grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
           <div>
-            <h2 className="editorial-title max-w-[430px]">A clear estimate, in rupees.</h2>
-            <p className="mt-7 max-w-[390px] text-base leading-7 text-[#5c6f6c]">Use the calculator for an indicative monthly estimate. We confirm the final plan after reviewing your call flow, integrations, languages, and support needs.</p>
-            <a href="#contact" className="mt-10 inline-flex items-center gap-3 rounded-lg bg-[#0c2624] px-5 py-3 text-sm font-semibold text-white">Talk to our team <ArrowUpRight className="h-4 w-4" /></a>
+            <h2 className="editorial-title max-w-[460px]">Find the right plan for your calls.</h2>
+            <p className="mt-7 max-w-[410px] text-base leading-7 text-[#5c6f6c]">A monthly subscription for your inbound WhatsApp voice agent. Adjust your call volume, conversation length, and busiest moments to find a plan that fits.</p>
+            <p className="mt-5 max-w-[410px] text-sm leading-6 text-[#5c6f6c]">Every plan includes Sinhala, Tamil, and English, your business knowledge and catalogue, call transcripts, and the customer dashboard. Bookings, orders, and support tickets are configured for your business.</p>
           </div>
 
-          <div className="product-frame-soft rounded-xl p-5 sm:p-10">
-            <div className="ui-window rounded-xl bg-white p-6 sm:p-9">
-              <div className="flex items-center justify-between border-b pb-5"><div><p className="text-sm font-semibold">Monthly estimate</p><p className="mt-1 text-xs text-[#5c6f6c]">All prices in LKR</p></div><p className="display-serif text-4xl text-[#0c2624]"><span className="hidden sm:inline">₨{totalCost.toLocaleString()}</span><span className="sm:hidden">{formatCurrency(totalCost)}</span></p></div>
-              <div className="mt-8 space-y-9">
+          <div className="product-frame-soft rounded-xl p-5 sm:p-8">
+            <div className="ui-window rounded-xl bg-white p-5 sm:p-8">
+              <h3 className="text-lg font-semibold">Make it yours</h3>
+              <p className="mt-1 text-sm text-[#5c6f6c]">Start with a typical month. You can change this anytime.</p>
+              <div className="mt-8 space-y-7">
                 {controls.map((control) => (
                   <div key={control.key}>
-                    <div className="mb-4 flex items-baseline justify-between gap-4"><label className="text-sm">{control.label}</label><span className="font-mono text-sm font-medium text-[#0c2624]"><span className="hidden sm:inline">{values[control.key].toLocaleString()}{control.suffix}</span><span className="sm:hidden">{formatNumberCompact(values[control.key])}{control.suffix}</span></span></div>
-                    <Slider value={values[control.key]} onChange={(value) => setValues((current) => ({ ...current, [control.key]: Array.isArray(value) ? value[0] : value }))} min={control.min} max={control.max} step={control.step} ariaLabel={control.label} className="slider" thumbClassName="slider-thumb" trackClassName="slider-track" />
-                    <div className="mt-2 flex justify-between text-[10px] text-[#5c6f6c]"><span>{control.min}</span><span>{control.max.toLocaleString()}</span></div>
+                    <div className="mb-3 flex items-baseline justify-between gap-3">
+                      <label htmlFor={`pricing-${control.key}`} className="text-sm">{control.label}</label>
+                      <output htmlFor={`pricing-${control.key}`} className="shrink-0 font-mono text-sm font-medium">{number(values[control.key])}{control.suffix}</output>
+                    </div>
+                    <input id={`pricing-${control.key}`} type="range" value={values[control.key]} onChange={(event) => setValues((current) => ({ ...current, [control.key]: Number(event.target.value) }))} min={control.min} max={control.max} step={control.step} className="h-6 w-full cursor-pointer accent-[#0c2624] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0c2624]" />
+                    <div className="mt-1 flex justify-between text-xs text-[#5c6f6c]"><span>{number(control.min)}{control.suffix}</span><span>{number(control.max)}{control.suffix}</span></div>
                   </div>
                 ))}
               </div>
-              <div className="mt-9 grid grid-cols-2 gap-3 border-t pt-6 text-xs"><div className="rounded-lg bg-[#eef2f0] p-4"><p className="text-[#5c6f6c]">Base platform</p><p className="mt-2 font-semibold">₨5,000</p></div><div className="rounded-lg bg-[#eef2f0] p-4"><p className="text-[#5c6f6c]">Managed setup</p><p className="mt-2 font-semibold">Included</p></div></div>
+              <div aria-live="polite" aria-atomic="true" className="mt-8 border-t border-[#dce5df] pt-6">
+                <p className="text-sm text-[#5c6f6c]">Your estimate: <span className="font-semibold text-[#0c2624]">{number(minutes)} minutes / month</span></p>
+                <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-[#5c6f6c]">Recommended for you</p>
+                <div className="mt-2 flex flex-wrap items-baseline justify-between gap-3">
+                  <p className="display-serif text-4xl">{recommended.name}</p>
+                  <p className="text-xl font-semibold">{recommended.price === null ? 'Let’s talk' : <>Rs {number(recommended.price)}<span className="text-sm font-normal text-[#5c6f6c]"> / month</span></>}</p>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-[#5c6f6c]">{recommended.minutes === null ? 'Your volume, simultaneous calls, or longer conversations need a tailored plan. We’ll work through the right capacity with you.' : `Covers your estimate with ${number(recommended.minutes)} monthly minutes and up to ${recommended.concurrent} simultaneous ${recommended.concurrent === 1 ? 'call' : 'calls'}.`}</p>
+              </div>
+              <a href={`https://wa.me/94742530708?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-[#0c2624] px-5 py-3 text-sm font-semibold text-white">Discuss {recommended.name} on WhatsApp <ArrowUpRight className="h-4 w-4" /></a>
             </div>
           </div>
         </div>
+
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {plans.map((plan) => {
+            const selected = plan.name === recommended.name
+            return (
+              <article key={plan.name} aria-label={`${plan.name} plan${selected ? ', recommended' : ''}`} className={`flex flex-col rounded-xl border p-6 ${selected ? 'border-[#0c2624] bg-[#eef2f0]' : 'border-[#dce5df] bg-white'}`}>
+                <p className={`mb-5 min-h-5 text-xs font-semibold ${selected ? 'text-[#0c2624]' : 'text-[#5c6f6c]'}`}>{selected ? 'Recommended for you' : 'Monthly subscription'}</p>
+                <h3 className="text-xl font-semibold">{plan.name}</h3>
+                <p className="mt-3 text-3xl font-semibold tracking-tight">{plan.price === null ? 'Custom' : `Rs ${number(plan.price)}`}</p>
+                <p className="mt-1 text-xs text-[#5c6f6c]">{plan.price === null ? 'Priced around your business' : 'per month · LKR'}</p>
+                <p className="mt-5 min-h-12 text-sm leading-6 text-[#5c6f6c]">{plan.description}</p>
+                <ul className="my-6 space-y-3 text-sm">
+                  {[plan.minutes === null ? 'Tailored monthly minutes' : `${number(plan.minutes)} minutes / month`, plan.concurrent === null ? 'Tailored call capacity' : `Up to ${plan.concurrent} simultaneous ${plan.concurrent === 1 ? 'call' : 'calls'}`, 'Customer dashboard', 'Guided onboarding'].map((feature) => (
+                    <li key={feature} className="flex items-start gap-2"><Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />{feature}</li>
+                  ))}
+                </ul>
+                <a href={`https://wa.me/94742530708?text=${encodeURIComponent(`Hi SerendibAI, I'd like to discuss the ${plan.name} plan. My estimate is ${values.calls} inbound calls per month, ${values.duration} minutes per call (${minutes} minutes monthly), and ${values.concurrent} simultaneous calls.`)}`} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center justify-between rounded-lg border border-[#0c2624] px-4 py-3 text-sm font-semibold">{plan.price === null ? 'Talk to us' : `Discuss ${plan.name}`}<ArrowUpRight className="h-4 w-4" /></a>
+              </article>
+            )
+          })}
+        </div>
+        <p className="mt-6 max-w-[900px] text-sm leading-6 text-[#5c6f6c]">Monthly allowances do not roll over. Additional minutes and call capacity require an agreed upgrade or custom quote. Prices exclude applicable taxes. Bespoke integrations and paid WhatsApp message templates are quoted separately. Final setup and capacity are confirmed during onboarding.</p>
       </div>
     </section>
   )
