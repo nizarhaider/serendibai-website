@@ -10,16 +10,17 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
+const siteUrl = 'https://serendibai.lk'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: { canonical: '/' },
   title: 'SerendibAI - AI Call Center Agents for Sri Lankan Businesses',
   description: 'Managed AI call center agents that answer inbound customer calls in English, Sinhala, and Tamil for Sri Lankan businesses.',
   generator: 'v0.app',
   openGraph: {
+    url: siteUrl,
+    siteName: 'SerendibAI',
     title: 'SerendibAI - AI Call Center Agents',
     description: 'Managed AI call center agents for Sri Lankan businesses. English, Sinhala, and Tamil inbound call handling.',
     type: 'website',
