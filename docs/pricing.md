@@ -4,12 +4,12 @@ All amounts are LKR. The website shows monthly subscriptions and included minute
 
 ## Current packages
 
-| Plan | Monthly price | Included minutes | Simultaneous calls | Voice cost at full usage | Voice gross margin |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Starter | 9,999 | 300 | 1 | 2,400 | 76.0% |
-| Growth | 24,999 | 1,000 | 3 | 8,000 | 68.0% |
-| Scale | 49,999 | 2,500 | 5 | 20,000 | 60.0% |
-| Custom | Quoted | Tailored | Tailored | Calculated individually | Target at least 50% after allocated costs |
+| Plan | Monthly price | Included minutes | Voice cost at full usage | Voice gross margin |
+| --- | ---: | ---: | ---: | ---: |
+| Starter | 9,999 | 600 | 4,800 | 52.0% |
+| Growth | 24,999 | 2,000 | 16,000 | 36.0% |
+| Scale | 49,999 | 5,000 | 40,000 | 20.0% |
+| Custom | Quoted | Tailored | Calculated individually | Quoted for the workload |
 
 Use the owner's supplied **Rs8 per conversation minute** as the voice-cost assumption. This replaces the earlier Rs25/minute planning reserve; it is not newly verified provider billing. Cost is `included minutes × 8`; voice gross margin is `(subscription − voice cost) / subscription`.
 
@@ -23,15 +23,17 @@ Allow monthly support/onboarding reserves of Rs500 for Starter, Rs1,000 for Grow
 
 | Plan | Revenue | Full-allowance voice cost | Support reserve | Contribution toward shared hosting and profit |
 | --- | ---: | ---: | ---: | ---: |
-| Starter | 9,999 | 2,400 | 500 | 7,099 |
-| Growth | 24,999 | 8,000 | 1,000 | 15,999 |
-| Scale | 49,999 | 20,000 | 2,000 | 27,999 |
+| Starter | 9,999 | 4,800 | 500 | 4,699 |
+| Growth | 24,999 | 16,000 | 1,000 | 7,999 |
+| Scale | 49,999 | 40,000 | 2,000 | 7,999 |
 
-Business operating contribution is `sum(customer contributions) − 21,000`. At full allowance, three Starter customers contribute Rs297 after the shared budget; two Growth customers contribute Rs10,998; one Scale customer contributes Rs6,999. One customer on each package contributes `7,099 + 15,999 + 27,999 − 21,000 = Rs30,097/month`. This is before taxes, payment fees, acquisition costs, general salaries and other overhead, so it is not guaranteed net profit. A single Starter or Growth customer does not cover the entire shared platform budget by itself.
+Business operating contribution is `sum(customer contributions) − 21,000`. At full allowance, five Starter customers contribute Rs2,495 after the shared budget; three Growth or three Scale customers contribute Rs2,997. One customer on each package contributes `4,699 + 7,999 + 7,999 − 21,000 = −Rs303/month`. Doubling the included minutes reduces margins: the packages still cover their voice cost and support reserves, but the customer mix must cover shared hosting. These figures exclude taxes, payment fees, acquisition costs, general salaries and other overhead; they are not guaranteed net profit.
 
 ## Calculator and commercial scope
 
-Recommend the cheapest package covering both monthly minutes and simultaneous calls. Above 2,500 monthly minutes, five simultaneous calls, or ten average minutes per conversation, recommend Custom. The long-conversation guard is retained because earlier short development calls did not validate longer context costs.
+Recommend the cheapest package covering monthly minutes, calculated as `inbound calls per month × average minutes per call`. Above 5,000 monthly minutes, recommend Custom. There is no separate conversation-duration gate.
+
+Maximum simultaneous calls is collected only for setup planning and included in the WhatsApp enquiry. It does not multiply monthly minutes, affect the recommendation, or define a tier allowance. Confirm provisioned capacity during onboarding; the calculator does not promise unlimited concurrency.
 
 Monthly allowances do not roll over. Additional usage requires an agreed upgrade or custom quote. Prices exclude applicable taxes, paid WhatsApp templates and bespoke integrations. Ordinary relevant WhatsApp follow-ups remain standard functionality. Final capacity is confirmed during onboarding.
 
