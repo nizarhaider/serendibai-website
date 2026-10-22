@@ -1,50 +1,44 @@
 # Subscription pricing — 22 October 2026
 
-All amounts below are LKR unless marked USD. This is the internal planning model, not a measured supplier invoice. The website shows subscription prices only.
+All amounts are LKR. The website shows monthly subscriptions and included minutes, never a per-call or per-minute selling price.
 
-| Plan | Monthly price | Included minutes | Simultaneous calls | Budgeted cost at full usage | Contribution | Margin |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Starter | 49,900 | 300 | 1 | 31,500 | 18,400 | 36.9% |
-| Growth | 99,900 | 1,000 | 3 | 53,000 | 46,900 | 46.9% |
-| Scale | 249,900 | 3,000 | 5 | 111,000 | 138,900 | 55.6% |
-| Custom | Quoted | Tailored | Tailored | Calculated for the workload | Target at least 50% | Quoted |
+## Current packages
 
-## Verified stack and usage
+| Plan | Monthly price | Included minutes | Simultaneous calls | Voice cost at full usage | Voice gross margin |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Starter | 9,999 | 300 | 1 | 2,400 | 76.0% |
+| Growth | 24,999 | 1,000 | 3 | 8,000 | 68.0% |
+| Scale | 49,999 | 2,500 | 5 | 20,000 | 60.0% |
+| Custom | Quoted | Tailored | Tailored | Calculated individually | Target at least 50% after allocated costs |
 
-- Runtime: `voice-agent/app/gemini.py` uses `gemini-3.8-live`, with direct Meta WhatsApp WebRTC. There is no separate paid ASR or TTS service and no Pinecone dependency in the call path; business knowledge and catalogue tools query Neon.
-- Hosting: AWS inventory confirmed a running `t4g.small` in Mumbai. The portal and marketing website use Netlify. Calls are persisted in Neon and MP3 recordings are archived to S3. Cloudflare provides the tunnel; no paid Cloudflare plan is assumed.
-- Read-only Neon analysis found 21 calls containing a Gemini 3.8 connection event and saved usage, spanning 27.576 minutes. Sessions with reconnects may contain more than one connection event. Older 3.1-only calls were excluded. This is a small development sample, not a representative production cohort.
-- Google publishes Gemini 3.8 Live prices of $0.75/M text input tokens, $3/M audio input, $4.50/M text output and $12/M audio output. Conversation context is included in the saved prompt counts; do not estimate cost using audio duration alone.
-- Sample token totals: text input 195,023; audio input 155,170; audio output 21,902; thoughts 9,148; unclassified prompt 43,468; unclassified response 751.
-- Conservative valuation: `(195023 × .75 + 155170 × 3 + 21902 × 12 + 9148 × 12 + 43468 × 3 + 751 × 12) / 1,000,000 = $1.12379325`. Thoughts and unclassified output are deliberately valued at the higher audio-output rate. This may overcount usage already represented by other fields or repeated metadata; it is a planning proxy, not reconstructed billing.
-- Weighted sample cost: $0.04075/minute. Call-level 90th percentile: $0.04959/minute; maximum: $0.06837/minute. With the planning FX of 350 LKR/USD, these are approximately Rs14.26, Rs17.36 and Rs23.93 per minute.
+Use the owner's supplied **Rs8 per conversation minute** as the voice-cost assumption. This replaces the earlier Rs25/minute planning reserve; it is not newly verified provider billing. Cost is `included minutes × 8`; voice gross margin is `(subscription − voice cost) / subscription`.
 
-## Budget and calculations
+## Hosting, support and business profit
 
-Use **350 LKR/USD as a planning assumption**, not a claim about the live exchange rate. Do not rely on provider credits or free tiers.
+The stack remains Gemini Live over direct WhatsApp WebRTC, an AWS runtime, Neon for business data and call records, Netlify for the website and portal, S3 for recordings, and a Cloudflare tunnel. There is no separate ASR/TTS charge or Pinecone dependency in the voice path.
 
-Variable reserve per minute: `$0.07 × 350 + Rs0.50 = Rs25`. The Rs0.50 allowance covers incremental recording storage, requests and traffic. Recording retention and actual bandwidth must be monitored; this is not an unlimited-retention promise. The $0.07 AI reserve is above the observed sample maximum, but long sessions or more complex prompts can still exceed it.
+Keep the earlier **Rs21,000/month shared infrastructure budget** as an explicit planning allowance, rather than charging the whole platform to every customer: runtime/disk/IPv4 Rs7,000, Neon Rs5,250, Netlify Rs7,000, and S3/traffic Rs1,750. These are budgets, not measured bills; they use the earlier planning FX of Rs350/USD. Do not add the variable Gemini voice cost again within this fixed hosting budget. Recording traffic, retention and concurrency may require a larger reserve as usage grows.
 
-Budget a full shared infrastructure baseline of **$60/month = Rs21,000**: runtime, disk and IPv4 $20; Neon $15; Netlify $20; S3/traffic $5. These are operating budgets rather than confirmed account bills. Neon and Netlify values use their public paid-plan guidance. The runtime reserve includes headroom rather than reusing an introductory EC2 promotion. Higher concurrency may require a larger instance; capacity must be load-tested before onboarding.
+Allow monthly support/onboarding reserves of Rs500 for Starter, Rs1,000 for Growth and Rs2,000 for Scale. Bespoke integration work is quoted separately.
 
-Each subscription is costed against the **entire baseline**, so the first customer does not rely on five other customers to subsidise hosting. Additional per-customer support/onboarding reserves are Rs3,000, Rs7,000 and Rs15,000 respectively, giving fixed reserves of Rs24,000, Rs28,000 and Rs36,000. Guided onboarding is included within this reserve; bespoke integrations are separately quoted.
+| Plan | Revenue | Full-allowance voice cost | Support reserve | Contribution toward shared hosting and profit |
+| --- | ---: | ---: | ---: | ---: |
+| Starter | 9,999 | 2,400 | 500 | 7,099 |
+| Growth | 24,999 | 8,000 | 1,000 | 15,999 |
+| Scale | 49,999 | 20,000 | 2,000 | 27,999 |
 
-- Starter: `300 × 25 + 24,000 = 31,500`; contribution `49,900 − 31,500 = 18,400`.
-- Growth: `1,000 × 25 + 28,000 = 53,000`; contribution `99,900 − 53,000 = 46,900`.
-- Scale: `3,000 × 25 + 36,000 = 111,000`; contribution `249,900 − 111,000 = 138,900`.
-- Margin: `(price − budgeted cost) / price`. These are contribution margins after the stated reserves, before tax, payment fees, acquisition costs, general salaries and other overhead. They are not guaranteed net profit.
-- Custom: estimate variable usage, dedicated capacity, support and integration work; quote at least `estimated cost / 0.5` for a 50% target margin. Review any paid WhatsApp templates or business-initiated calls separately. No outbound calling allowance is offered here.
+Business operating contribution is `sum(customer contributions) − 21,000`. At full allowance, three Starter customers contribute Rs297 after the shared budget; two Growth customers contribute Rs10,998; one Scale customer contributes Rs6,999. One customer on each package contributes `7,099 + 15,999 + 27,999 − 21,000 = Rs30,097/month`. This is before taxes, payment fees, acquisition costs, general salaries and other overhead, so it is not guaranteed net profit. A single Starter or Growth customer does not cover the entire shared platform budget by itself.
 
-The calculator chooses the cheapest plan covering both minutes and simultaneous calls. Average conversations over ten minutes go to Custom because the short-call sample does not validate their context cost. More than 3,000 monthly minutes or five concurrent calls also goes to Custom. Monthly allowances do not roll over; additional usage requires an agreed upgrade or quote. Taxes, paid message templates and bespoke integrations are excluded from advertised prices. Ordinary relevant WhatsApp follow-ups remain standard functionality.
+## Calculator and commercial scope
 
-This change is a marketing calculator and enquiry flow. It does not implement subscription billing, usage enforcement or runtime concurrency provisioning. Agree and configure limits during onboarding; monitor actual usage before promising a fixed cost at scale.
+Recommend the cheapest package covering both monthly minutes and simultaneous calls. Above 2,500 monthly minutes, five simultaneous calls, or ten average minutes per conversation, recommend Custom. The long-conversation guard is retained because earlier short development calls did not validate longer context costs.
 
-## Sources
+Monthly allowances do not roll over. Additional usage requires an agreed upgrade or custom quote. Prices exclude applicable taxes, paid WhatsApp templates and bespoke integrations. Ordinary relevant WhatsApp follow-ups remain standard functionality. Final capacity is confirmed during onboarding.
 
-- Google model rates: https://ai.google.dev/gemini-api/docs/pricing
-- Neon Launch pricing: https://neon.com/pricing
-- Netlify Pro pricing: https://www.netlify.com/pricing/
-- AWS public IPv4 pricing: https://aws.amazon.com/vpc/pricing/
-- Meta inbound calling reference: https://developers.facebook.com/documentation/business-messaging/whatsapp/calling/pricing (Meta returned HTTP 429 during verification; no unverified Meta rate is presented as a confirmed invoice rate).
+This change is a marketing calculator and enquiry flow. Subscription billing, automatic usage enforcement and runtime concurrency provisioning are not implemented by this change. Monitor actual supplier costs and review the Rs8 assumption against production billing.
 
-Review this model after a representative production month, longer-call samples, any model change, or a material exchange-rate change.
+## Earlier evidence
+
+The initial analysis inspected saved Neon usage for 21 calls containing a Gemini 3.8 connection, spanning 27.576 minutes. Its conservative token proxy included high-rate assumptions for thoughts and unclassified tokens and possible repeated metadata; it was not a provider invoice. The owner subsequently supplied Rs8/minute as the pricing basis. Do not present either that proxy or the new assumption as an audited cost.
+
+Provider reference links from the initial review: https://ai.google.dev/gemini-api/docs/pricing, https://neon.com/pricing, https://www.netlify.com/pricing/, https://aws.amazon.com/vpc/pricing/.

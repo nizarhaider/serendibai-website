@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { ArrowUpRight, Check } from 'lucide-react'
 
 const plans = [
-  { name: 'Starter', price: 49900, minutes: 300, concurrent: 1, description: 'For a small business getting started.' },
-  { name: 'Growth', price: 99900, minutes: 1000, concurrent: 3, description: 'For a team with a steady flow of enquiries.' },
-  { name: 'Scale', price: 249900, minutes: 3000, concurrent: 5, description: 'For a busy business handling more calls.' },
+  { name: 'Starter', price: 9999, minutes: 300, concurrent: 1, description: 'For a small business getting started.' },
+  { name: 'Growth', price: 24999, minutes: 1000, concurrent: 3, description: 'For a team with a steady flow of enquiries.' },
+  { name: 'Scale', price: 49999, minutes: 2500, concurrent: 5, description: 'For a busy business handling more calls.' },
   { name: 'Custom', price: null, minutes: null, concurrent: null, description: 'For higher volumes and tailored integrations.' },
 ]
 
