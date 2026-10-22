@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/serendibai-social-preview.png',
+        url: '/serendibai-social-brand.jpg',
         width: 1200,
         height: 630,
-        alt: 'SerendibAI AI call center agents social preview',
+        alt: 'Serendib AI Solutions logo',
       },
     ],
   },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SerendibAI - AI Call Center Agents',
     description: 'Managed AI call center agents for Sri Lankan businesses. English, Sinhala, and Tamil inbound call handling.',
-    images: ['/serendibai-social-preview.png'],
+    images: ['/serendibai-social-brand.jpg'],
   },
   icons: {
     icon: [
