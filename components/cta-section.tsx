@@ -2,7 +2,7 @@
 
 import { type FormEvent, useState } from 'react'
 
-const whatsappNumber = '94742530708'
+const whatsappNumber = '94783333567'
 
 export default function CTASection() {
   const [form, setForm] = useState({
@@ -61,6 +61,8 @@ export default function CTASection() {
                 answer your inbound calls, collect bookings, summarize outcomes,
                 and hand important conversations to your team.
               </p>
+
+              <p className="mt-6 text-sm"><a href="mailto:info@serendibai.lk" className="underline">info@serendibai.lk</a> · <a href="tel:+94783333567" className="underline">078 333 3567</a></p>
 
               <div className="mt-8 rounded-lg border border-white/10 bg-white/5 p-4">
                 <p className="font-heading mb-2">What happens next</p>

@@ -61,7 +61,7 @@ export default function PricingCalculator() {
                 </div>
                 <p className="mt-3 text-sm leading-6 text-[#5c6f6c]">{recommended.minutes === null ? 'Your estimate is above 5,000 monthly minutes. We’ll work through a tailored plan with you.' : `Covers your estimate with ${number(recommended.minutes)} monthly minutes.`}</p>
               </div>
-              <a href={`https://wa.me/94742530708?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-[#0c2624] px-5 py-3 text-sm font-semibold text-white">Discuss {recommended.name} on WhatsApp <ArrowUpRight className="h-4 w-4" /></a>
+              <a href={`https://wa.me/94783333567?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-[#0c2624] px-5 py-3 text-sm font-semibold text-white">Discuss {recommended.name} on WhatsApp <ArrowUpRight className="h-4 w-4" /></a>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function PricingCalculator() {
                     <li key={feature} className="flex items-start gap-2"><Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />{feature}</li>
                   ))}
                 </ul>
-                <a href={`https://wa.me/94742530708?text=${encodeURIComponent(`Hi SerendibAI, I'd like to discuss the ${plan.name} plan. My estimate is ${values.calls} inbound calls per month, ${values.duration} minutes per call (${minutes} minutes monthly), and up to ${values.concurrent} calls at a time.`)}`} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center justify-between rounded-lg border border-[#0c2624] px-4 py-3 text-sm font-semibold">{plan.price === null ? 'Talk to us' : `Discuss ${plan.name}`}<ArrowUpRight className="h-4 w-4" /></a>
+                <a href={`https://wa.me/94783333567?text=${encodeURIComponent(`Hi SerendibAI, I'd like to discuss the ${plan.name} plan. My estimate is ${values.calls} inbound calls per month, ${values.duration} minutes per call (${minutes} minutes monthly), and up to ${values.concurrent} calls at a time.`)}`} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center justify-between rounded-lg border border-[#0c2624] px-4 py-3 text-sm font-semibold">{plan.price === null ? 'Talk to us' : `Discuss ${plan.name}`}<ArrowUpRight className="h-4 w-4" /></a>
               </article>
             )
           })}
