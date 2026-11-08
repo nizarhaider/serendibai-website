@@ -73,6 +73,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${heading.variable} bg-background`}>
       <head>
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-T2DP3Z52" />
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());` }} />
         <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
