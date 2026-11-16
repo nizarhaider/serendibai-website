@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: 'SerendibAI - AI Call Center Agents for Sri Lankan Businesses',
   description: 'Managed AI call center agents that answer inbound customer calls in English, Sinhala, and Tamil for Sri Lankan businesses.',
   generator: 'v0.app',
+  other: { 'facebook-domain-verification': 'okjv3w6rgm2pijzqx8cy9ve5l6ixba' },
   openGraph: {
     url: siteUrl,
     siteName: 'SerendibAI',
