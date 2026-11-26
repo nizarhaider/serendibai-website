@@ -145,7 +145,7 @@ export default function CTASection() {
                   href="#pricing"
                   className="w-full rounded-lg border border-secondary/20 px-8 py-3.5 text-center font-semibold text-secondary transition-colors hover:bg-secondary/5 sm:w-auto"
                 >
-                  Estimate pricing
+                  Estimate usage
                 </a>
               </div>
 
