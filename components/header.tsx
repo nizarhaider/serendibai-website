@@ -9,7 +9,7 @@ const navItems = [['What it does', '#platform'], ['Features', '#features'], ['Pr
 export default function Header() {
   const [open, setOpen] = useState(false)
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-[1180px] items-center gap-10 px-5 sm:px-7">
         <Link href="/" className="brand" aria-label="SerendibAI home"><span className="brand-mark"><Radio size={17} /></span>SerendibAI</Link>
         <nav className="hidden gap-6 md:flex" aria-label="Main navigation">{navItems.map(([label, href]) => <a className="text-sm text-muted-foreground hover:text-primary" key={label} href={href}>{label}</a>)}</nav>

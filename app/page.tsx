@@ -15,9 +15,7 @@ export default function Home() {
       <ConversationDemo />
       <Features />
       <ArchitectureSection />
-      <section id="pricing">
-        <PricingCalculator />
-      </section>
+      <PricingCalculator />
       <CTASection />
       <Footer />
     </main>

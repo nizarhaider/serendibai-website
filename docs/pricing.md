@@ -1,46 +1,40 @@
-# Subscription pricing — 22 October 2026
+# Subscription pricing model — 28 November 2026
 
-All amounts are LKR. The website shows monthly subscriptions and included minutes, never a per-call or per-minute selling price.
+## Proposed customer plans
 
-## Current packages
+| Plan | Monthly price | Voice minutes | WhatsApp replies |
+| --- | ---: | ---: | ---: |
+| Starter | Rs 14,999 | 500 | 500 |
+| Growth | Rs 34,999 | 1,500 | 2,000 |
+| Scale | Rs 74,999 | 3,000 | 5,000 |
+| Custom | Quoted | Tailored | Tailored |
 
-| Plan | Monthly price | Included minutes | Voice cost at full usage | Voice gross margin |
-| --- | ---: | ---: | ---: | ---: |
-| Starter | 9,999 | 600 | 4,800 | 52.0% |
-| Growth | 24,999 | 2,000 | 16,000 | 36.0% |
-| Scale | 49,999 | 5,000 | 40,000 | 20.0% |
-| Custom | Quoted | Tailored | Calculated individually | Quoted for the workload |
+Each plan includes multilingual voice, the configured business knowledge, call transcripts, and the monthly allowances shown above. Recommend a plan against both voice minutes (`calls × average call length`) and replies. Count each generated WhatsApp answer as one reply. Monthly allowances do not roll over. Confirm overage rates, concurrency, integrations, and capacity in writing before activation; the portal does not yet enforce these plan allowances or automatically bill overages.
 
-Use the owner's supplied **Rs8 per conversation minute** as the voice-cost assumption. This replaces the earlier Rs25/minute planning reserve; it is not newly verified provider billing. Cost is `included minutes × 8`; voice gross margin is `(subscription − voice cost) / subscription`.
+## Cost assumptions
 
-## Hosting, support and business profit
+- **Voice:** use the owner's Rs 8 per elapsed call minute as a conservative planning reserve. Google's current Gemini 3.8 Live paid rates are $0.005 per minute of input audio and $0.018 per minute of output audio. At the planning exchange rate of Rs 333/USD, charging both full audio rates for every elapsed minute gives Rs 7.66/minute. Real usage varies with who is speaking, token counts, and the account's paid/free tier. The normal built-in voice avoids the separate generated-voice path used by the old company demo.
+- **WhatsApp AI replies:** the last 90 days contained only nine metered `gemini-3.8-flash` replies across customer workspaces, averaging 2,565 input and 59 output tokens. At published paid rates of $0.75/M input and $3.75/M output, this small sample estimates Rs 0.71 per reply at Rs 333/USD. Google lists doubled token rates from 1 January 2027, making the same sample about Rs 1.43. Use **Rs 2.50 per reply** as a temporary reserve for package planning; nine replies are not enough to establish a reliable long-run average.
+- **Support:** reserve Rs 500, Rs 1,000 and Rs 2,000 per month for Starter, Growth and Scale. These are planning allowances, not time-sheet measurements.
+- **Shared hosting:** keep Rs 21,000/month as a platform-wide planning budget, not a customer invoice or measured bill. Reconcile it against current AWS, Neon, Netlify, Cloudflare and recording-storage invoices before scaling ad spend.
 
-The stack remains Gemini Live over direct WhatsApp WebRTC, an AWS runtime, Neon for business data and call records, Netlify for the website and portal, S3 for recordings, and a Cloudflare tunnel. There is no separate ASR/TTS charge or Pinecone dependency in the voice path.
+Sources: [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing), [Neon pricing](https://neon.com/pricing), [Netlify pricing](https://www.netlify.com/pricing/), and [AWS VPC pricing](https://aws.amazon.com/vpc/pricing/).
 
-Keep the earlier **Rs21,000/month shared infrastructure budget** as an explicit planning allowance, rather than charging the whole platform to every customer: runtime/disk/IPv4 Rs7,000, Neon Rs5,250, Netlify Rs7,000, and S3/traffic Rs1,750. These are budgets, not measured bills; they use the earlier planning FX of Rs350/USD. Do not add the variable Gemini voice cost again within this fixed hosting budget. Recording traffic, retention and concurrency may require a larger reserve as usage grows.
+## Full-allowance contribution model
 
-Allow monthly support/onboarding reserves of Rs500 for Starter, Rs1,000 for Growth and Rs2,000 for Scale. Bespoke integration work is quoted separately.
+Using Rs 8/minute for voice, Rs 2.50/reply reserve, and the support reserves above:
 
-| Plan | Revenue | Full-allowance voice cost | Support reserve | Contribution toward shared hosting and profit |
-| --- | ---: | ---: | ---: | ---: |
-| Starter | 9,999 | 4,800 | 500 | 4,699 |
-| Growth | 24,999 | 16,000 | 1,000 | 7,999 |
-| Scale | 49,999 | 40,000 | 2,000 | 7,999 |
+| Plan | Revenue | Voice reserve | Reply reserve | Support reserve | Contribution before shared hosting |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Starter | 14,999 | 4,000 | 1,250 | 500 | 9,249 |
+| Growth | 34,999 | 12,000 | 5,000 | 1,000 | 16,999 |
+| Scale | 74,999 | 24,000 | 12,500 | 2,000 | 36,499 |
 
-Business operating contribution is `sum(customer contributions) − 21,000`. At full allowance, five Starter customers contribute Rs2,495 after the shared budget; three Growth or three Scale customers contribute Rs2,997. One customer on each package contributes `4,699 + 7,999 + 7,999 − 21,000 = −Rs303/month`. Doubling the included minutes reduces margins: the packages still cover their voice cost and support reserves, but the customer mix must cover shared hosting. These figures exclude taxes, payment fees, acquisition costs, general salaries and other overhead; they are not guaranteed net profit.
+One customer on each plan contributes Rs 62,747 before fixed hosting, or Rs 41,747 after the Rs 21,000 hosting budget. This leaves room for overhead while protecting against longer message context and provider-rate changes. It is not net profit: payment fees, taxes, ad spend, salaries, extraordinary support and contract-specific services are excluded. The proposed prices should be reviewed against actual invoices and real reply usage monthly during the first ad cohort.
 
-## Calculator and commercial scope
+## Product and billing boundaries
 
-Recommend the cheapest package covering monthly minutes, calculated as `inbound calls per month × average minutes per call`. Above 5,000 monthly minutes, recommend Custom. There is no separate conversation-duration gate.
-
-Maximum simultaneous calls is collected only for setup planning and included in the WhatsApp enquiry. It does not multiply monthly minutes, affect the recommendation, or define a tier allowance. Confirm provisioned capacity during onboarding; the calculator does not promise unlimited concurrency.
-
-Monthly allowances do not roll over. Additional usage requires an agreed upgrade or custom quote. Prices exclude applicable taxes, paid WhatsApp templates and bespoke integrations. Ordinary relevant WhatsApp follow-ups remain standard functionality. Final capacity is confirmed during onboarding.
-
-This change is a marketing calculator and enquiry flow. Subscription billing, automatic usage enforcement and runtime concurrency provisioning are not implemented by this change. Monitor actual supplier costs and review the Rs8 assumption against production billing.
-
-## Earlier evidence
-
-The initial analysis inspected saved Neon usage for 21 calls containing a Gemini 3.8 connection, spanning 27.576 minutes. Its conservative token proxy included high-rate assumptions for thoughts and unclassified tokens and possible repeated metadata; it was not a provider invoice. The owner subsequently supplied Rs8/minute as the pricing basis. Do not present either that proxy or the new assumption as an audited cost.
-
-Provider reference links from the initial review: https://ai.google.dev/gemini-api/docs/pricing, https://neon.com/pricing, https://www.netlify.com/pricing/, https://aws.amazon.com/vpc/pricing/.
+- Sell a monthly service subscription with explicit minute and reply allowances, not unmarked per-call rates.
+- Quote custom integrations, paid WhatsApp templates, exceptional data work, and higher concurrency separately.
+- Any extra usage or plan change needs a written price agreed before it is delivered; build usage alerts/enforcement before promising automatic caps or overage billing.
+- The public calculator recommends a package only. It does not create a subscription, reserve capacity, or guarantee a final quote.
